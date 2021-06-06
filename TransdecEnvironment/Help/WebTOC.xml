@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="e9456955-248a-45b1-a73f-f4c4f753c245" Title="global Namespace" Url="html/1494451555.htm">
+    <HelpTOCNode Id="4dafc009-415b-4577-bf8b-ca37509769bf" Title="AgentSettings Class" Url="html/827675746.htm">
+      <HelpTOCNode Title="AgentSettings Members" Url="html/898081850.htm" />
+      <HelpTOCNode Id="f55be998-8d0e-4c9d-8b81-0cce400d9e88" Title="AgentSettings Fields" Url="html/2042032036.htm">
+        <HelpTOCNode Title="collectObservations Field" Url="html/1671341982.htm" />
+        <HelpTOCNode Title="dataCollection Field" Url="html/1011424314.htm" />
+        <HelpTOCNode Title="forceToSaveAsNegative Field" Url="html/359029384.htm" />
+        <HelpTOCNode Title="positiveExamples Field" Url="html/122853707.htm" />
+        <HelpTOCNode Title="randomizeTargetObjectPositionOnEachStep Field" Url="html/740568148.htm" />
+        <HelpTOCNode Title="sendRelativeData Field" Url="html/1823307703.htm" />
+        <HelpTOCNode Title="targetReset Field" Url="html/801676886.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="cd22cb76-6c22-49d6-a6be-95bb609010d5" Title="BackgroundImageManager Class" Url="html/14275794.htm">
+      <HelpTOCNode Title="BackgroundImageManager Members" Url="html/1553463466.htm" />
+      <HelpTOCNode Id="75c0466e-0586-468a-b466-09eaa43ee296" Title="BackgroundImageManager Methods" Url="html/1250411190.htm">
+        <HelpTOCNode Title="EnableBackgroundImage Method " Url="html/1889529316.htm" />
+        <HelpTOCNode Title="GetNumOfImages Method " Url="html/1549833733.htm" />
+        <HelpTOCNode Title="SetNewBackground Method " Url="html/1008440492.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="57772c3a-e3e7-4086-a04a-576a3b1e4cad" Title="BackgroundSettings Class" Url="html/341499990.htm">
+      <HelpTOCNode Title="BackgroundSettings Members" Url="html/1915335454.htm" />
+      <HelpTOCNode Id="5b1e2b99-5ccd-485a-b902-1c5e6474fb8a" Title="BackgroundSettings Fields" Url="html/1833277373.htm">
+        <HelpTOCNode Title="bottomCameraBackground Field" Url="html/1810660028.htm" />
+        <HelpTOCNode Title="frequencyOfImageBackground Field" Url="html/1971843622.htm" />
+        <HelpTOCNode Title="frontCameraBackground Field" Url="html/1471398926.htm" />
+        <HelpTOCNode Title="isBackgroundImage Field" Url="html/1398048413.htm" />
+        <HelpTOCNode Title="numOfImageToDisplay Field" Url="html/151118766.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="CameraType Enumeration" Url="html/1364827311.htm" />
+    <HelpTOCNode Id="92dd3ed6-f915-4378-bdfe-d6bbdfeb1fb0" Title="Collision Class" Url="html/1460966519.htm">
+      <HelpTOCNode Title="Collision Members" Url="html/509198322.htm" />
+      <HelpTOCNode Id="a7e039f9-e650-4d21-a5da-83781d17cbfe" Title="Collision Fields" Url="html/1679482585.htm">
+        <HelpTOCNode Title="dis Field" Url="html/2057584934.htm" />
+        <HelpTOCNode Title="mainObject Field" Url="html/817155324.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="e22579be-662a-4373-bb4e-a001e6332562" Title="Collision Methods" Url="html/1680566872.htm">
+        <HelpTOCNode Title="getDistance Method " Url="html/1093837684.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="fcf98711-0083-4e10-a01c-a56f455cf7aa" Title="FakeTargetAnnotation Class" Url="html/1274432919.htm">
+      <HelpTOCNode Title="FakeTargetAnnotation Members" Url="html/1211104092.htm" />
+      <HelpTOCNode Id="5e7cb574-c5c1-4cfb-87b3-176b19bbc33f" Title="FakeTargetAnnotation Methods" Url="html/1116051219.htm">
+        <HelpTOCNode Title="OnGUI Method " Url="html/428574906.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="ObjectType Enumeration" Url="html/1703708771.htm" />
+    <HelpTOCNode Id="209c55b3-299d-4c7c-8853-a9ff9ba00c0e" Title="RobotAcademy Class" Url="html/1835610287.htm">
+      <HelpTOCNode Title="RobotAcademy Members" Url="html/335192484.htm" />
+      <HelpTOCNode Id="c68cd96b-341a-443e-99be-a54a044dd0d5" Title="RobotAcademy Fields" Url="html/1969284132.htm">
+        <HelpTOCNode Title="control Field" Url="html/356652733.htm" />
+        <HelpTOCNode Title="forceDataCollection Field" Url="html/1560285595.htm" />
+        <HelpTOCNode Title="forceNegativeExamples Field" Url="html/1936857797.htm" />
+        <HelpTOCNode Title="forceNoise Field" Url="html/553422799.htm" />
+        <HelpTOCNode Title="learningBrain Field" Url="html/827849362.htm" />
+        <HelpTOCNode Title="learningBrainNoImage Field" Url="html/1646616616.htm" />
+        <HelpTOCNode Title="objectCreator Field" Url="html/1902989225.htm" />
+        <HelpTOCNode Title="padBrain Field" Url="html/851754977.htm" />
+        <HelpTOCNode Title="playerBrain Field" Url="html/1286734179.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="de862f85-209a-4cb1-ad09-43cbf2a6af04" Title="RobotAcademy Methods" Url="html/1594360914.htm">
+        <HelpTOCNode Title="AcademyReset Method " Url="html/826507232.htm" />
+        <HelpTOCNode Title="InitializeAcademy Method " Url="html/2030781835.htm" />
+        <HelpTOCNode Title="SetFocusedObject Method " Url="html/1174452934.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="f16e6212-0b27-4f4d-bff6-264c05793f15" Title="RobotAcademy Properties" Url="html/550049518.htm">
+        <HelpTOCNode Title="Instance Property " Url="html/235092914.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="ac38fa08-763b-43c8-a0c7-c5e707e91b23" Title="RobotAgent Class" Url="html/1248619601.htm">
+      <HelpTOCNode Title="RobotAgent Members" Url="html/1371007908.htm" />
+      <HelpTOCNode Id="f53f7538-47f2-4fe0-9f34-19d3d78039e5" Title="RobotAgent Fields" Url="html/2142828201.htm">
+        <HelpTOCNode Title="bottomCamera Field" Url="html/1601451862.htm" />
+        <HelpTOCNode Title="frontCamera Field" Url="html/162650552.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="006b367e-a0a1-48de-ba5b-2384f704d960" Title="RobotAgent Methods" Url="html/1970685639.htm">
+        <HelpTOCNode Title="AgentAction Method " Url="html/921682234.htm" />
+        <HelpTOCNode Title="AgentReset Method " Url="html/884472946.htm" />
+        <HelpTOCNode Title="CollectObservations Method " Url="html/219324324.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="50505e16-b2a7-4be2-9ced-b73716fb6396" Title="RobotAgent Properties" Url="html/821221243.htm">
+        <HelpTOCNode Title="ActiveCamera Property " Url="html/879507787.htm" />
+        <HelpTOCNode Title="AgentSettings Property " Url="html/191314691.htm" />
+        <HelpTOCNode Title="BackgroundSettings Property " Url="html/1530921271.htm" />
+        <HelpTOCNode Title="EnvironmentInitValues Property " Url="html/887596658.htm" />
+        <HelpTOCNode Title="EnvironmentSettings Property " Url="html/1829683871.htm" />
+        <HelpTOCNode Title="Instance Property " Url="html/1857409386.htm" />
+        <HelpTOCNode Title="ObjectConfigurationSettings Property " Url="html/1303517355.htm" />
+        <HelpTOCNode Title="Robot Property " Url="html/1807066529.htm" />
+        <HelpTOCNode Title="TargetSettings Property " Url="html/864331855.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="7fd646fa-79f1-48b7-b90e-f72aac669a45" Title="RobotAgent Events" Url="html/1092857982.htm">
+        <HelpTOCNode Title="OnDataAgentUpdate Event" Url="html/2074866556.htm" />
+        <HelpTOCNode Title="OnDataBackgroundUpdate Event" Url="html/500859144.htm" />
+        <HelpTOCNode Title="OnDataConfigurationUpdate Event" Url="html/2019364292.htm" />
+        <HelpTOCNode Title="OnDataEnvironmentUpdate Event" Url="html/1680734399.htm" />
+        <HelpTOCNode Title="OnDataEnvironmentValuesUpdate Event" Url="html/1057827951.htm" />
+        <HelpTOCNode Title="OnDataTargetUpdate Event" Url="html/1136701108.htm" />
+        <HelpTOCNode Title="OnDataUpdate Event" Url="html/516399021.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="RobotControl Enumeration" Url="html/1770166890.htm" />
+    <HelpTOCNode Id="bbc9492d-0e26-4362-a48a-95e2b284b509" Title="TargetAnnotation Class" Url="html/1527602942.htm">
+      <HelpTOCNode Title="TargetAnnotation Members" Url="html/129169179.htm" />
+      <HelpTOCNode Id="3ff7229e-9875-4051-b8c9-492bb1658733" Title="TargetAnnotation Fields" Url="html/1014947583.htm">
+        <HelpTOCNode Title="background Field" Url="html/948927801.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="163b6f61-c181-4050-b461-b86e4d397f11" Title="TargetAnnotation Methods" Url="html/1299640715.htm">
+        <HelpTOCNode Title="GetBoundingBox Method " Url="html/2051242978.htm" />
+        <HelpTOCNode Title="OnGUI Method " Url="html/680191994.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="4f59ce5d-8615-42ef-a67d-16d20b6ce68b" Title="TargetSettings Class" Url="html/2041254923.htm">
+      <HelpTOCNode Title="TargetSettings Members" Url="html/2133520709.htm" />
+      <HelpTOCNode Id="c20ecc28-44a6-4a57-affa-7c3fd4396ba5" Title="TargetSettings Fields" Url="html/802927449.htm">
+        <HelpTOCNode Title="cameraType Field" Url="html/251177512.htm" />
+        <HelpTOCNode Title="target Field" Url="html/2085651688.htm" />
+        <HelpTOCNode Title="targetAnnotation Field" Url="html/240236117.htm" />
+        <HelpTOCNode Title="targetIndex Field" Url="html/521848519.htm" />
+        <HelpTOCNode Title="targetOffset Field" Url="html/1401903486.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="7788d6fb-c758-4115-89cb-8dce2d8ca6b1" Title="Utils Class" Url="html/481119885.htm">
+      <HelpTOCNode Title="Utils Members" Url="html/58182946.htm" />
+      <HelpTOCNode Id="56b18d88-f75c-44ad-810c-e8b89f7200be" Title="Utils Methods" Url="html/81447171.htm">
+        <HelpTOCNode Title="ActivateEnvironmentMeshRenderer Method " Url="html/1574460049.htm" />
+        <HelpTOCNode Title="calculateEquationOf2DLine Method " Url="html/554254119.htm" />
+        <HelpTOCNode Title="calculateEquationOf3DLine Method " Url="html/891100630.htm" />
+        <HelpTOCNode Title="ChangeObjectColor Method " Url="html/734767026.htm" />
+        <HelpTOCNode Title="GetBoxCoord Method " Url="html/329482676.htm" />
+        <HelpTOCNode Title="GetComplexBounds Method " Url="html/1862324537.htm" />
+        <HelpTOCNode Title="GetDistance Method " Url="html/906327021.htm" />
+        <HelpTOCNode Title="GetObjectsAndMeshInFolder Method " Url="html/1707857978.htm" />
+        <HelpTOCNode Title="GetObjectsInFolder Method " Url="html/1283070506.htm" />
+        <HelpTOCNode Title="isPointInObject Method " Url="html/674252638.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="140e1ada-cec5-4106-b861-4282afc8f5c0" Title="Objects Namespace" Url="html/1460033342.htm">
+    <HelpTOCNode Id="55fd183e-7fa3-4ee5-9c42-ca4316f24f2b" Title="EssentialSettings Class" Url="html/23078182.htm">
+      <HelpTOCNode Title="EssentialSettings Members" Url="html/728282331.htm" />
+      <HelpTOCNode Id="f634b66c-cf10-4e79-90bf-4d5777a61245" Title="EssentialSettings Fields" Url="html/455097257.htm">
+        <HelpTOCNode Title="cameraFov Field" Url="html/1945119795.htm" />
+        <HelpTOCNode Title="maxDepth Field" Url="html/389554672.htm" />
+        <HelpTOCNode Title="maxRadius Field" Url="html/757088215.htm" />
+        <HelpTOCNode Title="minRadius Field" Url="html/950067971.htm" />
+        <HelpTOCNode Title="waterLevel Field" Url="html/437402678.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="5fadb67a-849b-4936-8c4f-fbc8bba22d11" Title="NoiseSpawner Class" Url="html/747435903.htm">
+      <HelpTOCNode Title="NoiseSpawner Members" Url="html/1057188663.htm" />
+      <HelpTOCNode Id="ef41d1c7-d18d-42f1-92e1-fcf15101fad4" Title="NoiseSpawner Methods" Url="html/2132079235.htm">
+        <HelpTOCNode Title="AddNoise Method " Url="html/143329713.htm" />
+        <HelpTOCNode Title="GetOtherObjs Method " Url="html/906704258.htm" />
+        <HelpTOCNode Title="SetOthNewPos Method " Url="html/1839570429.htm" />
+        <HelpTOCNode Title="SetRadiusOfGeneratedObject Method " Url="html/1377012299.htm" />
+        <HelpTOCNode Id="850f2798-d162-4760-8a25-19e7e1b46d31" Title="UpdateData Method " Url="html/1094391535.htm">
+          <HelpTOCNode Title="UpdateData Method (TargetSettings)" Url="html/881860911.htm" />
+          <HelpTOCNode Title="UpdateData Method (ObjectConfigurationSettings)" Url="html/740931859.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="245c36d8-ad9f-49ec-90ad-f30365f139b0" Title="ObjectConfigurationSettings Class" Url="html/72508292.htm">
+      <HelpTOCNode Title="ObjectConfigurationSettings Members" Url="html/2133210351.htm" />
+      <HelpTOCNode Id="35befca7-faf3-4e47-9819-130d36f0f38d" Title="ObjectConfigurationSettings Fields" Url="html/1229872700.htm">
+        <HelpTOCNode Title="addCompetitionObjectsAsNoise Field" Url="html/503173290.htm" />
+        <HelpTOCNode Title="addNoise Field" Url="html/354263343.htm" />
+        <HelpTOCNode Title="noiseFolder Field" Url="html/438068610.htm" />
+        <HelpTOCNode Title="numberOfNoiseToGenerate Field" Url="html/1899532499.htm" />
+        <HelpTOCNode Title="randomOrientation Field" Url="html/846391877.htm" />
+        <HelpTOCNode Title="randomPosition Field" Url="html/990821406.htm" />
+        <HelpTOCNode Title="randomQuarter Field" Url="html/1812195210.htm" />
+        <HelpTOCNode Title="setFocusedObjectInCenter Field" Url="html/496624559.htm" />
+        <HelpTOCNode Title="setObjectAlwaysVisible Field" Url="html/378896046.htm" />
+        <HelpTOCNode Title="tasksFolder Field" Url="html/1870279355.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="fc56a114-9bf4-49e7-88c7-6a7d5e251066" Title="ObjectCreator Class" Url="html/290215355.htm">
+      <HelpTOCNode Title="ObjectCreator Members" Url="html/987730875.htm" />
+      <HelpTOCNode Id="d0a3ed8d-a7fc-4647-896e-4e508900d19a" Title="ObjectCreator Fields" Url="html/1798426173.htm">
+        <HelpTOCNode Title="targetAnnotations Field" Url="html/1664841449.htm" />
+        <HelpTOCNode Title="targetCameraModes Field" Url="html/1221914839.htm" />
+        <HelpTOCNode Title="targetIsEnabled Field" Url="html/51693598.htm" />
+        <HelpTOCNode Title="targetObjects Field" Url="html/729320107.htm" />
+        <HelpTOCNode Title="targetObjectTypes Field" Url="html/1814885370.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="18103c8e-2199-46d7-9a9e-18b69060e57c" Title="ObjectCreatorDrawer Class" Url="html/235320380.htm">
+      <HelpTOCNode Title="ObjectCreatorDrawer Members" Url="html/2029720495.htm" />
+      <HelpTOCNode Id="221348b1-4531-45df-90fb-bbba551b1a7d" Title="ObjectCreatorDrawer Methods" Url="html/1385861161.htm">
+        <HelpTOCNode Title="GetPropertyHeight Method " Url="html/637023982.htm" />
+        <HelpTOCNode Title="OnGUI Method " Url="html/339266781.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="c6229670-9c0d-46e8-a0ab-df300011971a" Title="ObjectManager Class" Url="html/187921217.htm">
+      <HelpTOCNode Title="ObjectManager Members" Url="html/1962699420.htm" />
+      <HelpTOCNode Id="d38e639a-0ae1-4e05-868a-189adccff324" Title="ObjectManager Methods" Url="html/75086853.htm">
+        <HelpTOCNode Title="GetNoiseSpawner Method " Url="html/1095549987.htm" />
+        <HelpTOCNode Title="GetRandomInitNormal Method " Url="html/636052679.htm" />
+        <HelpTOCNode Title="GetRandomInitOnMesh Method " Url="html/587936058.htm" />
+        <HelpTOCNode Title="GetRandomPosition Method " Url="html/437537051.htm" />
+        <HelpTOCNode Title="GetSpawnConfiguration Method " Url="html/796189221.htm" />
+        <HelpTOCNode Title="RandomizeCameraPositionFocusedOnTarget Method " Url="html/1716202141.htm" />
+        <HelpTOCNode Title="RandomizeObjectsPositionsOnInit Method " Url="html/759987127.htm" />
+        <HelpTOCNode Title="RandomizeTargetPosition Method " Url="html/137896908.htm" />
+        <HelpTOCNode Id="5fcfeefd-65cb-4c05-bd7f-a92f17c1f9ac" Title="UpdateData Method " Url="html/1177300566.htm">
+          <HelpTOCNode Title="UpdateData Method (ObjectConfigurationSettings)" Url="html/426694801.htm" />
+          <HelpTOCNode Title="UpdateData Method (TargetSettings)" Url="html/181640292.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="85fe8405-5685-4ae9-90e1-a4872104e69b" Title="ObjectSpawnConfiguration Class" Url="html/1087162773.htm">
+      <HelpTOCNode Title="ObjectSpawnConfiguration Members" Url="html/549526226.htm" />
+      <HelpTOCNode Id="35a8f4df-3d11-494b-a52d-79471ab35a46" Title="ObjectSpawnConfiguration Fields" Url="html/876257450.htm">
+        <HelpTOCNode Title="essentialSettings Field" Url="html/328712496.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="316a55b6-9fba-43c9-84c1-214380ee9899" Title="ObjectSpawnConfiguration Methods" Url="html/2122090064.htm">
+        <HelpTOCNode Title="ActivateOption Method " Url="html/1133654909.htm" />
+        <HelpTOCNode Title="AddNewObject Method " Url="html/1224360561.htm" />
+        <HelpTOCNode Title="DeleteObject Method " Url="html/713786797.htm" />
+        <HelpTOCNode Title="GetSettingsForActivatedObject Method " Url="html/1824445804.htm" />
+        <HelpTOCNode Title="InsertNewObject Method " Url="html/876480134.htm" />
+        <HelpTOCNode Title="SetCameraMode Method " Url="html/763124527.htm" />
+        <HelpTOCNode Title="SetObjectTarget Method " Url="html/1554217267.htm" />
+        <HelpTOCNode Title="SetObjectTargetAnnotation Method " Url="html/156207019.htm" />
+        <HelpTOCNode Title="SetObjectType Method " Url="html/410768196.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="9b97df29-dbaa-422e-8adf-42da1faf5e88" Title="ObjectSpawnConfiguration Properties" Url="html/1586331489.htm">
+        <HelpTOCNode Title="ObjectSettings Property " Url="html/1855444509.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="24858bf3-c84e-4582-86ef-ff9ddd32546c" Title="RandomCameraPosition Class" Url="html/1758296879.htm">
+      <HelpTOCNode Title="RandomCameraPosition Members" Url="html/315109506.htm" />
+      <HelpTOCNode Id="65477a8d-6a9c-41ea-97ea-79596125a70c" Title="RandomCameraPosition Methods" Url="html/1153691140.htm">
+        <HelpTOCNode Title="Init Method " Url="html/377949843.htm" />
+        <HelpTOCNode Title="SetNewRobotPos Method " Url="html/1452148233.htm" />
+        <HelpTOCNode Id="1d228209-21c4-48ae-82a6-14cd44031401" Title="UpdateData Method " Url="html/1970993150.htm">
+          <HelpTOCNode Title="UpdateData Method (TargetSettings)" Url="html/257611370.htm" />
+          <HelpTOCNode Title="UpdateData Method (ObjectConfigurationSettings)" Url="html/1340841939.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="6f3c603a-75c8-4023-9158-46f8ed528d99" Title="RandomInitNormal Class" Url="html/1242213027.htm">
+      <HelpTOCNode Title="RandomInitNormal Members" Url="html/1757523092.htm" />
+      <HelpTOCNode Id="bdace1fe-7193-4202-8f81-39526b6bbea7" Title="RandomInitNormal Methods" Url="html/1952200829.htm">
+        <HelpTOCNode Title="PutAll Method " Url="html/1061380700.htm" />
+        <HelpTOCNode Title="PutTarget Method " Url="html/310142303.htm" />
+        <HelpTOCNode Title="UpdateData Method " Url="html/1284271110.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="e46183b4-2071-4758-8840-57bd76fabb56" Title="RandomInitNormal.ObjectPositionSettings Class" Url="html/1572488403.htm">
+      <HelpTOCNode Title="RandomInitNormal.ObjectPositionSettings Members" Url="html/1200477800.htm" />
+      <HelpTOCNode Title="ObjectPositionSettings Constructor " Url="html/1023302831.htm" />
+      <HelpTOCNode Id="5a6e2f8c-9ee8-46a8-b998-d8088d4a1fed" Title="RandomInitNormal.ObjectPositionSettings Fields" Url="html/1203949874.htm">
+        <HelpTOCNode Title="allowedRotations Field" Url="html/1748859702.htm" />
+        <HelpTOCNode Title="minusXPosRange Field" Url="html/2113580231.htm" />
+        <HelpTOCNode Title="minusYPosRange Field" Url="html/1277144263.htm" />
+        <HelpTOCNode Title="minusZPosRange Field" Url="html/1934578489.htm" />
+        <HelpTOCNode Title="obj Field" Url="html/1627264063.htm" />
+        <HelpTOCNode Title="startPosition Field" Url="html/951766607.htm" />
+        <HelpTOCNode Title="startRotation Field" Url="html/1161577671.htm" />
+        <HelpTOCNode Title="xAngRange Field" Url="html/892161411.htm" />
+        <HelpTOCNode Title="xPosRange Field" Url="html/1074639264.htm" />
+        <HelpTOCNode Title="yAngRange Field" Url="html/1876611234.htm" />
+        <HelpTOCNode Title="yPosRange Field" Url="html/451555387.htm" />
+        <HelpTOCNode Title="zAngRange Field" Url="html/165370937.htm" />
+        <HelpTOCNode Title="zPosRange Field" Url="html/1801429738.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="ac32dc9e-0b9f-4488-ba66-8f9f2595420f" Title="RandomInitOnMesh Class" Url="html/1667296059.htm">
+      <HelpTOCNode Title="RandomInitOnMesh Members" Url="html/813172641.htm" />
+      <HelpTOCNode Id="b2d60a71-31a3-4398-bde6-6a33d956d348" Title="RandomInitOnMesh Methods" Url="html/1103267045.htm">
+        <HelpTOCNode Title="PutAll Method " Url="html/154038467.htm" />
+        <HelpTOCNode Title="PutTarget Method " Url="html/1722966246.htm" />
+        <HelpTOCNode Title="UpdateData Method " Url="html/1359209306.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="67db3d14-6be6-44a0-9080-47f366860e5f" Title="Settings Class" Url="html/351574821.htm">
+      <HelpTOCNode Title="Settings Members" Url="html/674446297.htm" />
+      <HelpTOCNode Title="Settings Constructor " Url="html/1824533966.htm" />
+      <HelpTOCNode Id="d2be638d-ada4-4f04-981f-7a46b4e4ffac" Title="Settings Fields" Url="html/616912456.htm">
+        <HelpTOCNode Title="cameraFov Field" Url="html/920920239.htm" />
+        <HelpTOCNode Title="maxDepth Field" Url="html/281650136.htm" />
+        <HelpTOCNode Title="maxPhi Field" Url="html/902747266.htm" />
+        <HelpTOCNode Title="maxRadius Field" Url="html/2058999779.htm" />
+        <HelpTOCNode Title="minPhi Field" Url="html/872469850.htm" />
+        <HelpTOCNode Title="minRadius Field" Url="html/2040256683.htm" />
+        <HelpTOCNode Title="mode Field" Url="html/943832774.htm" />
+        <HelpTOCNode Title="othMaxDepth Field" Url="html/1061534925.htm" />
+        <HelpTOCNode Title="othMaxRadius Field" Url="html/688463149.htm" />
+        <HelpTOCNode Title="othMinRadius Field" Url="html/1696669695.htm" />
+        <HelpTOCNode Title="othXAngRange Field" Url="html/437091878.htm" />
+        <HelpTOCNode Title="othYAngRange Field" Url="html/773278365.htm" />
+        <HelpTOCNode Title="othZAngRange Field" Url="html/1511656180.htm" />
+        <HelpTOCNode Title="target Field" Url="html/1896935586.htm" />
+        <HelpTOCNode Title="targetAnnotation Field" Url="html/1247677093.htm" />
+        <HelpTOCNode Title="type Field" Url="html/260391248.htm" />
+        <HelpTOCNode Title="waterLevel Field" Url="html/1474442243.htm" />
+        <HelpTOCNode Title="xAngRange Field" Url="html/1502752650.htm" />
+        <HelpTOCNode Title="yAngRange Field" Url="html/2050437002.htm" />
+        <HelpTOCNode Title="zAngRange Field" Url="html/1833447306.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="8f33a933-144c-411a-87bb-38b58be40ea2" Title="Robot Namespace" Url="html/1452478520.htm">
+    <HelpTOCNode Id="ff85fa87-8eb7-4c71-8ed6-206f7aea4edf" Title="Accelerometer Class" Url="html/2028488215.htm">
+      <HelpTOCNode Title="Accelerometer Members" Url="html/1635091110.htm" />
+      <HelpTOCNode Id="e922b21f-7930-47d2-940a-bed44094da88" Title="Accelerometer Methods" Url="html/1794427318.htm">
+        <HelpTOCNode Title="GetAcceleration Method " Url="html/1197933944.htm" />
+        <HelpTOCNode Title="GetAngularAcceleration Method " Url="html/1302730714.htm" />
+        <HelpTOCNode Title="GetRotation Method " Url="html/1698003614.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="fe186d14-e9c2-46bc-8743-2bd8c7798f8a" Title="DepthSensor Class" Url="html/239774628.htm">
+      <HelpTOCNode Title="DepthSensor Members" Url="html/348974877.htm" />
+      <HelpTOCNode Id="f03638c9-234f-4207-90e6-80ff835a4311" Title="DepthSensor Fields" Url="html/361297677.htm">
+        <HelpTOCNode Title="offset Field" Url="html/473136935.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="b684fa62-daf8-4f93-a321-e7d1ad9b87eb" Title="DepthSensor Methods" Url="html/862971673.htm">
+        <HelpTOCNode Title="GetDepth Method " Url="html/1047026150.htm" />
+        <HelpTOCNode Title="Init Method " Url="html/1045830738.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="837e5053-7ee9-48d0-bc41-e705924757fa" Title="Engine Class" Url="html/1684457688.htm">
+      <HelpTOCNode Title="Engine Members" Url="html/93760446.htm" />
+      <HelpTOCNode Id="343a6ecf-7fb5-4c6e-b87d-89d31338b3d0" Title="Engine Fields" Url="html/568493457.htm">
+        <HelpTOCNode Title="angularDrag Field" Url="html/1093837809.htm" />
+        <HelpTOCNode Title="drag Field" Url="html/2047924199.htm" />
+        <HelpTOCNode Title="maxForceLateral Field" Url="html/1777423984.htm" />
+        <HelpTOCNode Title="maxForceLongitudinal Field" Url="html/700289576.htm" />
+        <HelpTOCNode Title="maxForceVertical Field" Url="html/1139536186.htm" />
+        <HelpTOCNode Title="maxTorqueYaw Field" Url="html/942204981.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="e0cbf656-8f87-4613-91ec-9f0cc92d250e" Title="Engine Methods" Url="html/507930880.htm">
+        <HelpTOCNode Title="Init Method " Url="html/1760630262.htm" />
+        <HelpTOCNode Title="isAboveSurface Method " Url="html/543781509.htm" />
+        <HelpTOCNode Title="Move Method " Url="html/423348290.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="88dd86ac-4ee9-4376-9a5e-0481acfdb252" Title="Robot Class" Url="html/1059952498.htm">
+      <HelpTOCNode Title="Robot Members" Url="html/2064066508.htm" />
+      <HelpTOCNode Id="5a10603d-4361-49a0-9b6d-11c40e9fee7c" Title="Robot Properties" Url="html/578975197.htm">
+        <HelpTOCNode Title="Accelerometer Property " Url="html/136076947.htm" />
+        <HelpTOCNode Title="DepthSensor Property " Url="html/492993016.htm" />
+        <HelpTOCNode Title="Engine Property " Url="html/1549546108.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="97b01ad5-0364-4dfa-8043-df185915a441" Title="SceneEnvironment Namespace" Url="html/692941042.htm">
+    <HelpTOCNode Id="18ad1b11-1345-4dc8-bf2a-44cdae1c8eca" Title="BuoyRotation Class" Url="html/728793587.htm">
+      <HelpTOCNode Title="BuoyRotation Members" Url="html/567900861.htm" />
+      <HelpTOCNode Id="454448b3-75d3-40b0-96b5-73863487c714" Title="BuoyRotation Fields" Url="html/246695408.htm">
+        <HelpTOCNode Title="Robot Field" Url="html/1994208671.htm" />
+        <HelpTOCNode Title="RotationSpeed Field" Url="html/1286401612.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="3816710b-a700-4a1f-bcd0-181b50875e28" Title="EnvironmentInitValues Class" Url="html/276220116.htm">
+      <HelpTOCNode Title="EnvironmentInitValues Members" Url="html/1603093227.htm" />
+      <HelpTOCNode Id="fb167720-32ce-4f60-a3af-0f5ce1f5d2bc" Title="EnvironmentInitValues Fields" Url="html/1212726955.htm">
+        <HelpTOCNode Title="maxIntensivity Field" Url="html/362187281.htm" />
+        <HelpTOCNode Title="maxLightAngle Field" Url="html/1813605408.htm" />
+        <HelpTOCNode Title="maxWaterFog Field" Url="html/193942130.htm" />
+        <HelpTOCNode Title="maxWaterHSV Field" Url="html/731723350.htm" />
+        <HelpTOCNode Title="minIntensivity Field" Url="html/1515262831.htm" />
+        <HelpTOCNode Title="minLightAngle Field" Url="html/261550504.htm" />
+        <HelpTOCNode Title="minWaterFog Field" Url="html/432948122.htm" />
+        <HelpTOCNode Title="minWaterHSV Field" Url="html/1033072942.htm" />
+        <HelpTOCNode Title="normalLightAngle Field" Url="html/1819078908.htm" />
+        <HelpTOCNode Title="normalLightIntensivity Field" Url="html/459888197.htm" />
+        <HelpTOCNode Title="normalWaterColor Field" Url="html/895407491.htm" />
+        <HelpTOCNode Title="normalWaterFog Field" Url="html/595041041.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="f3d4b41e-2190-4039-b9c3-1b3ceb4f1a3a" Title="EnvironmentManager Class" Url="html/1202377704.htm">
+      <HelpTOCNode Title="EnvironmentManager Members" Url="html/1805220481.htm" />
+      <HelpTOCNode Id="90c1ce65-e6f1-4797-b45f-18c98bc2e136" Title="EnvironmentManager Methods" Url="html/1469772469.htm">
+        <HelpTOCNode Title="EnvironmentNormalInit Method " Url="html/1672291898.htm" />
+        <HelpTOCNode Title="EnvironmentRandomizedInit Method " Url="html/1001403843.htm" />
+        <HelpTOCNode Title="UpdateData Method " Url="html/819143202.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="c688c161-bf52-42ff-99c8-c26b1ced7ac1" Title="EnvironmentManager Properties" Url="html/1063433065.htm">
+        <HelpTOCNode Title="Light Property " Url="html/228110204.htm" />
+        <HelpTOCNode Title="WaterCurrent Property " Url="html/221866355.htm" />
+        <HelpTOCNode Title="WaterOpacity Property " Url="html/1004918771.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="e7876826-78fd-42a4-8ef3-77a76fe832ca" Title="EnvironmentSettings Class" Url="html/1308421243.htm">
+      <HelpTOCNode Title="EnvironmentSettings Members" Url="html/1134064926.htm" />
+      <HelpTOCNode Id="0c3dcff5-02a6-48e2-93f4-a7c0ccb8f7d5" Title="EnvironmentSettings Fields" Url="html/1458509392.htm">
+        <HelpTOCNode Title="isCurrentEnabled Field" Url="html/894069438.htm" />
+        <HelpTOCNode Title="isEnvironmentInitOnEachStep Field" Url="html/1324137942.htm" />
+        <HelpTOCNode Title="isEnvironmentRandomized Field" Url="html/1703806468.htm" />
+        <HelpTOCNode Title="WaterSurface Field" Url="html/829469135.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0c803c80-012c-4a5b-b087-ec7febedb815" Title="LightManager Class" Url="html/407725964.htm">
+      <HelpTOCNode Title="LightManager Members" Url="html/649369971.htm" />
+      <HelpTOCNode Id="287c056a-a7c9-4ec1-8dc2-d46c4d513f8b" Title="LightManager Methods" Url="html/1218628937.htm">
+        <HelpTOCNode Title="initializeLight Method " Url="html/1577369621.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="c0600e56-f554-416f-9d3d-1e4af7d63008" Title="WaterCurrent Class" Url="html/735847380.htm">
+      <HelpTOCNode Title="WaterCurrent Members" Url="html/1362822762.htm" />
+      <HelpTOCNode Id="687693cc-d5c6-46ad-9eea-d97b7b53bb47" Title="WaterCurrent Methods" Url="html/1383348869.htm">
+        <HelpTOCNode Title="DataUpdate Method " Url="html/636674164.htm" />
+        <HelpTOCNode Title="isWaterCurrent Method " Url="html/1813889102.htm" />
+        <HelpTOCNode Title="setWaterCurrent Method " Url="html/1909204330.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="a4495b04-eb22-404c-8033-5ae9925c604a" Title="WaterOpacity Class" Url="html/1796659724.htm">
+      <HelpTOCNode Title="WaterOpacity Members" Url="html/1779355394.htm" />
+      <HelpTOCNode Id="614c4d87-52a6-4150-bdae-cfcfb36e325a" Title="WaterOpacity Methods" Url="html/1711894307.htm">
+        <HelpTOCNode Title="SetWaterColor Method " Url="html/1585761442.htm" />
+        <HelpTOCNode Title="SetWaterFog Method " Url="html/1799087167.htm" />
+        <HelpTOCNode Title="UpdateData Method " Url="html/709110175.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="3be37f25-1ea4-464b-9f79-920cd6c1f0b2" Title="WaterOpacity Properties" Url="html/497809020.htm">
+        <HelpTOCNode Title="WaterFog Property " Url="html/1334919517.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>
