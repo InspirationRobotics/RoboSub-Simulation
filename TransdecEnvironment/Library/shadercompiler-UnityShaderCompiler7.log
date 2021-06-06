@@ -1,0 +1,65 @@
+Base path: '/Users/saxenapratham6/Unity/2019.2.9f1/Unity.app/Contents', plugins path '/Users/saxenapratham6/Unity/2019.2.9f1/Unity.app/Contents/PlaybackEngines'
+Cmd: initializeCompiler
+Cmd: compileComputeKernel
+  api=14 insize=4855 outsize=10966 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=7304 outsize=11321 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=18299 outsize=9678 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=9678 outsize=16573 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=8324 outsize=2973 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=3059 outsize=3717 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=7860 outsize=3693 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=4413 outsize=2783 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=2783 outsize=4100 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=11059 outsize=5348 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=7488 outsize=17234 ok=1
+Cmd: compileComputeKernel
+  error: 1 plat 14 at Tensor.cginc(112): use of potentially uninitialized variable (ReadonlyTensor::SafeGet)
+  api=14 insize=22218 outsize=3546 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=22218 outsize=2774 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=22218 outsize=2716 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=22218 outsize=3351 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=4666 outsize=7116 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=3052 outsize=3200 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=3586 outsize=4478 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=1454 outsize=1199 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=15584 outsize=2099 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=15584 outsize=2242 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=15584 outsize=2263 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=15584 outsize=2618 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=2312 outsize=3080 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=2191 outsize=2915 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=2182 outsize=2743 ok=1
+Cmd: compileSnippet
+  api=14 type=1 insize=1596 outsize=15229 kw=UNITY_PASS_FORWARDBASE DIRECTIONAL LIGHTPROBE_SH FOG_EXP2 pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1
+Cmd: compileSnippet
+  api=14 type=0 insize=11846 outsize=2664 kw=SHADOWS_SPLIT_SPHERES pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1
+Cmd: compileSnippet
+  api=14 type=0 insize=1596 outsize=6092 kw=UNITY_PASS_FORWARDBASE DIRECTIONAL SHADOWS_SCREEN LIGHTPROBE_SH FOG_EXP2 _NORMALMAP _PARALLAXMAP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1
+Cmd: compileSnippet
+  api=14 type=1 insize=1454 outsize=9317 kw=UNITY_PASS_FORWARDADD POINT FOG_EXP2 _NORMALMAP _PARALLAXMAP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1
+Cmd: compileSnippet
+  api=14 type=1 insize=9733 outsize=5565 kw=FOG_EXP2 WATER_SIMPLE WATER_VERTEX_DISPLACEMENT_OFF WATER_EDGEBLEND_ON pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1

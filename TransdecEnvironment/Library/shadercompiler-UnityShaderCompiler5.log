@@ -1,0 +1,64 @@
+Base path: '/Users/saxenapratham6/Unity/2019.2.9f1/Unity.app/Contents', plugins path '/Users/saxenapratham6/Unity/2019.2.9f1/Unity.app/Contents/PlaybackEngines'
+Cmd: initializeCompiler
+Cmd: compileComputeKernel
+  api=14 insize=10881 outsize=10700 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=4855 outsize=5525 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=18299 outsize=9597 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=9901 outsize=16818 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=8324 outsize=3306 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=3364 outsize=4384 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=4413 outsize=2783 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=2783 outsize=4104 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=11059 outsize=8440 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=2124 outsize=3456 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=22218 outsize=2984 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=22218 outsize=3198 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=22218 outsize=2788 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=22218 outsize=3182 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=22218 outsize=3522 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=3722 outsize=5177 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=3084 outsize=3319 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=3005 outsize=3114 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=4026 outsize=5273 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=1831 outsize=4178 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=15584 outsize=2162 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=15584 outsize=2161 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=15584 outsize=2152 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=2195 outsize=2746 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=2254 outsize=2821 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=2137 outsize=2882 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=2502 outsize=3296 ok=1
+Cmd: compileSnippet
+  api=14 type=1 insize=1596 outsize=16116 kw=UNITY_PASS_FORWARDBASE DIRECTIONAL LIGHTPROBE_SH FOG_EXP2 _NORMALMAP _PARALLAXMAP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1
+Cmd: compileSnippet
+  api=14 type=0 insize=1596 outsize=4153 kw=UNITY_PASS_FORWARDBASE DIRECTIONAL SHADOWS_SCREEN LIGHTPROBE_SH FOG_EXP2 pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1
+Cmd: compileSnippet
+  api=14 type=1 insize=1596 outsize=17429 kw=UNITY_PASS_FORWARDBASE DIRECTIONAL SHADOWS_SCREEN LIGHTPROBE_SH FOG_EXP2 _NORMALMAP _PARALLAXMAP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1
+Cmd: compileSnippet
+  api=14 type=0 insize=9733 outsize=2851 kw=FOG_EXP2 WATER_SIMPLE WATER_VERTEX_DISPLACEMENT_OFF WATER_EDGEBLEND_ON pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1
