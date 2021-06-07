@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Environment
+  - Garlic_drop_frame
+  - Expose_to_sunlight_trumna
+  - Path
+  - stake_through
+  - triple_board
+  - Garlic_task
+  - crucifix_task
+  - BRAMA
+  - board
+  - Light
+  - WaterSurface
+  - Noise
+  - Tasks
+  - NoiseFolder
+  - TasksFolder
+  - Pool
+  - PoolSurface
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - PostProcessing
+  - Ball
+  - Torpedo
+  - LightRays
+  - Pool
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
