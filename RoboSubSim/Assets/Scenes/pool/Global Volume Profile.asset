@@ -21,7 +21,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   colorMode:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 1
   color:
     m_OverrideState: 0
@@ -63,8 +63,8 @@ MonoBehaviour:
     m_Value: 14
     min: 1
   enableVolumetricFog:
-    m_OverrideState: 1
-    m_Value: 1
+    m_OverrideState: 0
+    m_Value: 0
   albedo:
     m_OverrideState: 1
     m_Value: {r: 0.11372549, g: 0.42745098, b: 0.9150943, a: 1}
