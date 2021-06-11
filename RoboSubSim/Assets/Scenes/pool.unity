@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1481.7754, g: 1835.8867, b: 2430.4492, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2055,14 +2055,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1719298042}
-    - target: {fileID: 511307900181211751, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
-      propertyPath: relativePos.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 511307900181211751, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
-      propertyPath: relativePos.z
-      value: -0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 544276012036450876, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2083,14 +2075,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 760216214}
-    - target: {fileID: 2285470011576505110, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
-      propertyPath: relativePos.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2285470011576505110, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
-      propertyPath: relativePos.z
-      value: -0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2992136296967967010, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2159,58 +2143,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1366972266}
-    - target: {fileID: 5805665228243847631, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
-      propertyPath: forwardForce
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5805665228243847631, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
-      propertyPath: thrustForces.Array.data[0]
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5805665228243847631, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
-      propertyPath: thrustForces.Array.data[1]
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5805665228243847631, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
-      propertyPath: thrustForces.Array.data[2]
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5805665228243847631, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
-      propertyPath: thrustForces.Array.data[3]
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 6031707776658217692, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 760216214}
-    - target: {fileID: 6415927021191779893, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
-      propertyPath: relativePos.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415927021191779893, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
-      propertyPath: relativePos.z
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6424152789563731099, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1180004704}
-    - target: {fileID: 6491328711115966184, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6491328711115966184, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6866017084168605124, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
-      propertyPath: relativePos.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6866017084168605124, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
-      propertyPath: relativePos.z
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6874218595104241514, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2222,10 +2162,6 @@ PrefabInstance:
     - target: {fileID: 7558959925981707487, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
       propertyPath: m_Name
       value: DummySubmarine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7645065579272832876, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.957
       objectReference: {fileID: 0}
     - target: {fileID: 9047481047608114730, guid: 2de8eb27ec4623943a5954d70b0ba1f8, type: 3}
       propertyPath: m_Mesh
