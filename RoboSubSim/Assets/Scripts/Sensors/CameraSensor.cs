@@ -7,18 +7,18 @@ using UnityEngine;
 public class CameraSensor : MonoBehaviour, ISensor
 {
     public Camera sensorCam;
-	public int width = 256;
-	public int height = 256;
-	Texture2D tex;
-	RenderTexture ren;
+    public int width = 256;
+    public int height = 256;
+    Texture2D tex;
+    RenderTexture ren;
     Rect ImageRect;
 
     void Awake()
-	{
-		tex = new Texture2D(width, height, TextureFormat.RGB24, false);
-		ren = new RenderTexture(width, height, 16, RenderTextureFormat.ARGB32);
-		sensorCam.targetTexture = ren;
-	}
+    {
+        tex = new Texture2D(width, height, TextureFormat.RGB24, false);
+        ren = new RenderTexture(width, height, 16, RenderTextureFormat.ARGB32);
+        sensorCam.targetTexture = ren;
+    }
 
     void UpdateResolution(int w, int h)
     {
@@ -27,24 +27,24 @@ public class CameraSensor : MonoBehaviour, ISensor
         ImageRect = new Rect(0, 0, width, height);
     }
 
-	Texture2D RTImage() 
-	{
-		var currentRT = RenderTexture.active;
-		RenderTexture.active = sensorCam.targetTexture;
+    Texture2D RTImage()
+    {
+        var currentRT = RenderTexture.active;
+        RenderTexture.active = sensorCam.targetTexture;
 
-		sensorCam.Render();
+        sensorCam.Render();
 
-		tex.ReadPixels(ImageRect, 0, 0);
-		tex.Apply();
-		RenderTexture.active = currentRT;
+        tex.ReadPixels(ImageRect, 0, 0);
+        tex.Apply();
+        RenderTexture.active = currentRT;
 
-		return tex;
-	}
+        return tex;
+    }
 
-	public byte[] GetImageBytes()
-	{
-		return RTImage().EncodeToPNG();
-	}
+    public byte[] GetImageBytes()
+    {
+        return RTImage().EncodeToPNG();
+    }
 
     public JSONObject RequestObs(JSONObject json)
     {
