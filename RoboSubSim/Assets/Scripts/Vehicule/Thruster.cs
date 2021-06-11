@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Thruster : MonoBehaviour
 {
-    public Vector3 thrustVector;
+    public Vector3 relativePos;
 
-    void Awake()
+    public Vector3 GetThrustVector()
     {
-        thrustVector = thrustVector.normalized;
+        Debug.Log(transform.rotation * Vector3.up);
+        return transform.rotation * Vector3.up;
     }
 }

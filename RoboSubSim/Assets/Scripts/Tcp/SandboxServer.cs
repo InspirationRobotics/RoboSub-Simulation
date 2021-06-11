@@ -15,8 +15,6 @@ public class SandboxServer : MonoBehaviour
     tk.TcpServer _server = null;
 
     public GameObject clientTemplateObj = null;
-    bool argHost = false;
-    bool argPort = false;
 
     public void CheckCommandLineConnectArgs()
     {
@@ -27,12 +25,10 @@ public class SandboxServer : MonoBehaviour
             if (args[i] == "--host")
             {
                 host = args[i + 1];
-                argHost = true;
             }
             else if (args[i] == "--port")
             {
                 port = int.Parse(args[i + 1]);
-                argPort = true;
             }
         }
     }

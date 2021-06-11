@@ -9,7 +9,8 @@ namespace tk
     public class TcpSubHandler : MonoBehaviour
     {
         public GameObject subObj;
-        public Submarine sub;
+        Submarine sub;
+        public GameObject[] sensorsGO;
         public ISensor[] sensors;
         private tk.JsonTcpClient client;
 
@@ -21,6 +22,12 @@ namespace tk
         void Awake()
         {
             sub = subObj.GetComponent<Submarine>();
+            ISensor[] sensors = new ISensor[sensorsGO.Length];
+
+            for (int i = 0; i < sensorsGO.Length; i++)
+            {
+                sensors[i] = sensorsGO[i].GetComponent<ISensor>();
+            }
 
         }
 

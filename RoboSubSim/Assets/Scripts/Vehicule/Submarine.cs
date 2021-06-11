@@ -2,52 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Submarine : MonoBehaviour
 {
     Rigidbody rb;
-    float waterLevel = 0f;
-    GameObject[] thrustersGO;
-    Thruster[] thrusters;
-    public float[] thrustForces;
+    public float waterLevel = 0f;
+    public float waterDrag = 5f;
+
+    public float upForce = 0f;
+    public float forwardForce = 0f;
+    public float rollForce = 0f;
+    public float pitchForce = 0f;
+    public float yawForce = 0f;
+
 
     // start position and rot
     public Vector3 startPos;
     public Quaternion startRot;
 
-    void awake()
+    void Awake()
     {
-        // get the thrusters objects
-        thrusters = new Thruster[thrustersGO.Length];
-        thrustForces = new float[thrustersGO.Length];
-
-        for (int i = 0; i < thrustersGO.Length; i++)
-        {
-            thrusters[i] = thrustersGO[i].GetComponent<Thruster>();
-        }
+        rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
-        for (int i = 0; i < thrustForces.Length; i++)
-        {
-            float thForce = thrustForces[i];
-            if (thForce != 0)
-            {
-                ApplyForceThruster(i, thForce);
-            }
-        }
-    }
+        if (upForce != 0f) { rb.AddRelativeForce(Vector3.up * upForce, ForceMode.Acceleration); }
+        if (forwardForce != 0f) { rb.AddRelativeForce(Vector3.right * forwardForce, ForceMode.Acceleration); }
+        if (rollForce != 0f) { rb.AddRelativeTorque(Vector3.right * rollForce, ForceMode.Acceleration); }
+        if (pitchForce != 0f) { rb.AddRelativeTorque(Vector3.forward * pitchForce, ForceMode.Acceleration); }
+        if (yawForce != 0f) { rb.AddRelativeTorque(Vector3.up * yawForce, ForceMode.Acceleration); }
 
-    void ApplyForceThruster(int thIndex, float force)
-    {
-        if (thIndex >= thrusters.Length)
-        {
-            Debug.LogError("Thruster index out of range");
-            return;
-        }
-
-        Thruster th = thrusters[thIndex];
-        rb.AddForceAtPosition(th.thrustVector * force, th.transform.position, ForceMode.Acceleration);
+        // when we are underwater, let's assume there is no gravity
+        if (transform.position.y < waterLevel) { rb.useGravity = false; rb.drag = waterDrag; }
+        else { rb.useGravity = true; rb.drag = 0; }
 
     }
 
