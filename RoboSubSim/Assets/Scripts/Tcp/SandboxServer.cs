@@ -78,7 +78,7 @@ public class SandboxServer : MonoBehaviour
         if (spawner != null)
         {
             if (_server.debug)
-                Debug.Log("spawning car.");
+                Debug.Log("spawning sub.");
 
             spawner.SpawnNewSub(client.gameObject.GetComponent<tk.JsonTcpClient>());
         }

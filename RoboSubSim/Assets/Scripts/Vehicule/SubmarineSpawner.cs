@@ -69,6 +69,7 @@ public class SubmarineSpawner : MonoBehaviour
         if (toRemove != null)
         {
             subs.Remove(toRemove);
+            GameObject.Destroy(toRemove);
         }
     }
 

@@ -41,7 +41,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460128170182713422}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensorCam: {fileID: 7622148271594516736}
-  width: 256
-  height: 256
+  width: 1280
+  height: 720
 --- !u!114 &6499696180053007289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1126,14 +1126,6 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8208879482050198514, guid: 077c9d64fe591104b854d2c12e907e8a, type: 3}
-      propertyPath: relativePos.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8208879482050198514, guid: 077c9d64fe591104b854d2c12e907e8a, type: 3}
-      propertyPath: relativePos.z
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8612042062616713901, guid: 077c9d64fe591104b854d2c12e907e8a, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1223,14 +1215,6 @@ PrefabInstance:
     - target: {fileID: 7929950523436339783, guid: 077c9d64fe591104b854d2c12e907e8a, type: 3}
       propertyPath: m_Convex
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8208879482050198514, guid: 077c9d64fe591104b854d2c12e907e8a, type: 3}
-      propertyPath: relativePos.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8208879482050198514, guid: 077c9d64fe591104b854d2c12e907e8a, type: 3}
-      propertyPath: relativePos.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8612042062616713901, guid: 077c9d64fe591104b854d2c12e907e8a, type: 3}
       propertyPath: m_Mesh
@@ -1322,14 +1306,6 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8208879482050198514, guid: 077c9d64fe591104b854d2c12e907e8a, type: 3}
-      propertyPath: relativePos.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8208879482050198514, guid: 077c9d64fe591104b854d2c12e907e8a, type: 3}
-      propertyPath: relativePos.z
-      value: -0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8612042062616713901, guid: 077c9d64fe591104b854d2c12e907e8a, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1419,14 +1395,6 @@ PrefabInstance:
     - target: {fileID: 7929950523436339783, guid: 077c9d64fe591104b854d2c12e907e8a, type: 3}
       propertyPath: m_Convex
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8208879482050198514, guid: 077c9d64fe591104b854d2c12e907e8a, type: 3}
-      propertyPath: relativePos.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8208879482050198514, guid: 077c9d64fe591104b854d2c12e907e8a, type: 3}
-      propertyPath: relativePos.z
-      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8612042062616713901, guid: 077c9d64fe591104b854d2c12e907e8a, type: 3}
       propertyPath: m_Mesh

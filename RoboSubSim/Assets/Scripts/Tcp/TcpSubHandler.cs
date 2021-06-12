@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
-
 
 namespace tk
 {
@@ -27,7 +27,6 @@ namespace tk
             {
                 sensors[i] = sensorsGO[i].GetComponent<ISensor>();
             }
-
         }
 
         public void Start()
@@ -83,19 +82,18 @@ namespace tk
         {
             try
             {
-                // ai_steering = float.Parse(json["steering"].str, CultureInfo.InvariantCulture.NumberFormat);
-                // ai_throttle = float.Parse(json["throttle"].str, CultureInfo.InvariantCulture.NumberFormat);
-                // ai_brake = float.Parse(json["brake"].str, CultureInfo.InvariantCulture.NumberFormat);
+                float upForce = float.Parse(json["up_force"].str, CultureInfo.InvariantCulture.NumberFormat);
+                float forwardForce = float.Parse(json["forward_force"].str, CultureInfo.InvariantCulture.NumberFormat);
+                float rollForce = float.Parse(json["roll_force"].str, CultureInfo.InvariantCulture.NumberFormat);
+                float pitchForce = float.Parse(json["pitch_force"].str, CultureInfo.InvariantCulture.NumberFormat);
+                float yawForce = float.Parse(json["yaw_force"].str, CultureInfo.InvariantCulture.NumberFormat);
 
-                // ai_steering = clamp(ai_steering, -1.0f, 1.0f);
-                // ai_throttle = clamp(ai_throttle, -1.0f, 1.0f);
-                // ai_brake = clamp(ai_brake, 0.0f, 1.0f);
+                sub.upForce = upForce;
+                sub.forwardForce = forwardForce;
+                sub.rollForce = rollForce;
+                sub.pitchForce = pitchForce;
+                sub.yawForce = yawForce;
 
-                // ai_steering *= steer_to_angle;
-
-                // car.RequestSteering(ai_steering);
-                // car.RequestThrottle(ai_throttle);
-                // car.RequestFootBrake(ai_brake);
             }
             catch (Exception e)
             {
