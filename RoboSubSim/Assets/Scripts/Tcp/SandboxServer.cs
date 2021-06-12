@@ -84,9 +84,8 @@ public class SandboxServer : MonoBehaviour
         }
     }
 
-    public void OnSceneLoaded(bool bFrontEnd)
+    public void OnSceneLoaded()
     {
-
         List<tk.TcpClient> clients = _server.GetClients();
 
         foreach (tk.TcpClient client in clients)

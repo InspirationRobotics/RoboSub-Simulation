@@ -18,11 +18,10 @@ namespace tk
         float transferRate = 20.0f;
         bool bResetSub = false;
 
-
         void Awake()
         {
             sub = subObj.GetComponent<Submarine>();
-            ISensor[] sensors = new ISensor[sensorsGO.Length];
+            sensors = new ISensor[sensorsGO.Length];
 
             for (int i = 0; i < sensorsGO.Length; i++)
             {
