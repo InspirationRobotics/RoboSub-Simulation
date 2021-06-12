@@ -5,6 +5,7 @@ using UnityEngine;
 public class SubmarineSpawner : MonoBehaviour
 {
     public GameObject subPrefab;
+    public GameObject mainCameraGO;
     public Transform spawnPoint;
 
     List<GameObject> subs = new List<GameObject>();
@@ -43,6 +44,8 @@ public class SubmarineSpawner : MonoBehaviour
             if (subHandler != null)
                 subHandler.Init(client);
         }
+
+        manageCamera();
         return go;
     }
 
@@ -73,5 +76,15 @@ public class SubmarineSpawner : MonoBehaviour
         }
     }
 
+    public void manageCamera()
+    {
+        if (subs.Count == 0) { return; }
+
+        CameraFollow cm = mainCameraGO.GetComponent<CameraFollow>();
+        GameObject sub = subs[0];
+        GameObject camTm = getChildGameObject(sub, "CameraTm");
+
+        cm.target = camTm.transform;
+    }
 
 }
