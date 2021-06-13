@@ -16,6 +16,8 @@ public class Submarine : MonoBehaviour
     public float yawForce = 0f;
 
 
+    public bool isSubmerged = true;
+
     // start position and rot
     public Vector3 startPos;
     public Quaternion startRot;
@@ -33,10 +35,22 @@ public class Submarine : MonoBehaviour
         if (pitchForce != 0f) { rb.AddRelativeTorque(Vector3.forward * pitchForce, ForceMode.Acceleration); }
         if (yawForce != 0f) { rb.AddRelativeTorque(Vector3.up * yawForce, ForceMode.Acceleration); }
 
-        // when we are underwater, let's assume there is no gravity
-        if (transform.position.y < waterLevel) { rb.useGravity = false; rb.drag = waterDrag; }
-        else { rb.useGravity = true; rb.drag = 0; }
+        if (transform.position.y < waterLevel)
+        {
+            isSubmerged = true;
 
+            // when we are underwater, let's assume there is no gravity but drag increase
+            rb.useGravity = false;
+            rb.drag = waterDrag;
+        }
+
+        else
+        {
+            isSubmerged = false;
+
+            rb.useGravity = true;
+            rb.drag = 0;
+        }
     }
 
     public void RestorePosRot()
