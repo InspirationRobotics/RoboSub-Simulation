@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: 9467e91953a7e9d45b3cd551194db833
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: mesh_10_LPattern3_8__face
+    100002: mesh_11_LPattern3_1__face
+    100004: mesh_12_Boss-Extrude17
+    100006: mesh_1_transdec-1
+    100008: mesh_2_Cut-Extrude15_1_
+    100010: mesh_3_Cut-Extrude15_1__face
+    100012: mesh_4_Transdec_Above_Water-1
+    100014: mesh_5_Mirror5_face
+    100016: mesh_6_LPattern3_15__face
+    100018: mesh_7_Mirror4
+    100020: mesh_8_Cut-Extrude9
+    100022: mesh_9_Mirror4_face
+    100024: transdec_test
+    100026: //RootNode
+    400000: mesh_10_LPattern3_8__face
+    400002: mesh_11_LPattern3_1__face
+    400004: mesh_12_Boss-Extrude17
+    400006: mesh_1_transdec-1
+    400008: mesh_2_Cut-Extrude15_1_
+    400010: mesh_3_Cut-Extrude15_1__face
+    400012: mesh_4_Transdec_Above_Water-1
+    400014: mesh_5_Mirror5_face
+    400016: mesh_6_LPattern3_15__face
+    400018: mesh_7_Mirror4
+    400020: mesh_8_Cut-Extrude9
+    400022: mesh_9_Mirror4_face
+    400024: transdec_test
+    400026: //RootNode
+    2100000: _1
+    2100002: _
+    2100004: _2
+    2100006: _3
+    2100008: _0
+    2100010: _4
+    2100012: _5
+    2100014: _6
+    2100016: _7
+    2100018: _8
+    2100020: _9
+    2300000: mesh_10_LPattern3_8__face
+    2300002: mesh_11_LPattern3_1__face
+    2300004: mesh_12_Boss-Extrude17
+    2300006: mesh_1_transdec-1
+    2300008: mesh_2_Cut-Extrude15_1_
+    2300010: mesh_3_Cut-Extrude15_1__face
+    2300012: mesh_4_Transdec_Above_Water-1
+    2300014: mesh_5_Mirror5_face
+    2300016: mesh_6_LPattern3_15__face
+    2300018: mesh_7_Mirror4
+    2300020: mesh_8_Cut-Extrude9
+    2300022: mesh_9_Mirror4_face
+    2300024: transdec_test
+    3300000: mesh_10_LPattern3_8__face
+    3300002: mesh_11_LPattern3_1__face
+    3300004: mesh_12_Boss-Extrude17
+    3300006: mesh_1_transdec-1
+    3300008: mesh_2_Cut-Extrude15_1_
+    3300010: mesh_3_Cut-Extrude15_1__face
+    3300012: mesh_4_Transdec_Above_Water-1
+    3300014: mesh_5_Mirror5_face
+    3300016: mesh_6_LPattern3_15__face
+    3300018: mesh_7_Mirror4
+    3300020: mesh_8_Cut-Extrude9
+    3300022: mesh_9_Mirror4_face
+    3300024: transdec_test
+    4300000: transdec_test
+    4300002: mesh_11_LPattern3_1__face
+    4300004: mesh_6_LPattern3_15__face
+    4300006: mesh_2_Cut-Extrude15_1_
+    4300008: mesh_8_Cut-Extrude9
+    4300010: mesh_10_LPattern3_8__face
+    4300012: mesh_12_Boss-Extrude17
+    4300014: mesh_1_transdec-1
+    4300016: mesh_5_Mirror5_face
+    4300018: mesh_4_Transdec_Above_Water-1
+    4300020: mesh_3_Cut-Extrude15_1__face
+    4300022: mesh_7_Mirror4
+    4300024: mesh_9_Mirror4_face
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _
+    second: {fileID: 2100000, guid: d66df07210f47704e83e7987adc89e0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _0
+    second: {fileID: 2100000, guid: d207ae304e76d5644a8a25858aecca27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _1
+    second: {fileID: 2100000, guid: 00ebb5ac5e780be4d9c26921f746a160, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _2
+    second: {fileID: 2100000, guid: 7f3bade14c331ed49bdee444ffba2d96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _3
+    second: {fileID: 2100000, guid: 7ede0c0bc66faf544b16a7527acba1ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _4
+    second: {fileID: 2100000, guid: 0422e5e5e1776bd47b82fc3ab128e660, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _5
+    second: {fileID: 2100000, guid: e9a7c275584e3334da988d2e1974114f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _6
+    second: {fileID: 2100000, guid: d7b6f51ffbc5ba84295ae5dda001b5a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _7
+    second: {fileID: 2100000, guid: 47e329b48b45cf242bdfd17342f9fb3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _8
+    second: {fileID: 2100000, guid: e6d6bf24c0000ba4f9867f7cfde7becc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _9
+    second: {fileID: 2100000, guid: 940454287b6da7f4abd22ba938a9f970, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
