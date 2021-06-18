@@ -189,7 +189,8 @@ class SimpleClient(SDClient):
             imgString = json_packet["CameraSensor"]
             # here is the image !
             image = Image.open(BytesIO(base64.b64decode(imgString)))
-            self.last_image = cv2.cvtColor(np.asarray(image), cv2.COLOR_RGB2BGR)
+            self.last_image = cv2.cvtColor(
+                np.asarray(image), cv2.COLOR_RGB2BGR)
 
             cv2.imshow("img", self.last_image)
             cv2.waitKey(1)
@@ -203,7 +204,7 @@ class SimpleClient(SDClient):
         if self.verbose:
             print("got:", json_packet)
 
-    def send_controls(self, up_force=0, forward_force=6, roll_force=0, pitch_force=0, yaw_force=0):
+    def send_controls(self, up_force=0, forward_force=0, roll_force=0, pitch_force=0, yaw_force=0):
         msg = {
             "msg_type": "control",
             "up_force": str(up_force),
@@ -236,7 +237,7 @@ def test_clients():
 
     # Start Clients
     for _ in range(0, num_clients):
-        c = SimpleClient(address=(host, port))
+        c = SimpleClient(address=(host, port), verbose=False)
         clients.append(c)
 
     time.sleep(1)
