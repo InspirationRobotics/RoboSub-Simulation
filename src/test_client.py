@@ -1,35 +1,384 @@
-"""
-A test script to see if the TCP + UDP connections to the server are working properly
+import base64
+import json
+import logging
+import random
+import re
+import select
+import socket
+import time
+from io import BytesIO
+from threading import Thread
 
-the TCP client will mainly be used to spawn the sub + control it
-UDP clients only listen to the server to get the telemetry data
-"""
+import cv2
+import numpy as np
+from PIL import Image
+import math
+import time
 
-import tcp_client
-import udp_client
+logger = logging.getLogger(__name__)
 
 
-class SimpleClient():
-    def __init__(self, host, tcp_port, udp_ports):
+def replace_float_notation(string):
+    """
+    Replace unity float notation for languages like
+    French or German that use comma instead of dot.
+    This convert the json sent by Unity to a valid one.
+    Ex: "test": 1,2, "key": 2 -> "test": 1.2, "key": 2
+    :param string: (str) The incorrect json string
+    :return: (str) Valid JSON string
+    """
+    regex_french_notation = r'"[a-zA-Z_]+":(?P<num>[0-9,E-]+),'
+    regex_end = r'"[a-zA-Z_]+":(?P<num>[0-9,E-]+)}'
 
+    for regex in [regex_french_notation, regex_end]:
+        matches = re.finditer(regex, string, re.MULTILINE)
+
+        for match in matches:
+            num = match.group('num').replace(',', '.')
+            string = string.replace(match.group('num'), num)
+    return string
+
+
+class SDClient:
+    def __init__(self, host, port, poll_socket_sleep_time=0.05):
+        self.msg = None
         self.host = host
-        self.tcp_port = tcp_port
-        self.udp_ports = udp_ports
+        self.port = port
+        self.poll_socket_sleep_sec = poll_socket_sleep_time
+        self.th = None
 
-        self.tcp_client = tcp_client.SimpleTcpClient((self.host, self.tcp_port))
-        self.udp_clients = [udp_client.SimpleUdpClient((self.host, port)) for port in self.udp_ports]
+        # the aborted flag will be set when we have detected a problem with the socket
+        # that we can't recover from.
+        self.aborted = False
+        self.connect()
 
-        self.drive_loop()
+    def connect(self):
+        self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    def drive_loop(self):
-        do_drive = True
-        while do_drive:
-            self.tcp_client.update()
-            if self.tcp_client.aborted:
-                print("TcpClient socket problem, stopping driving.")
+        # connecting to the server
+        logger.info("connecting to %s:%d " % (self.host, self.port))
+        try:
+            self.s.connect((self.host, self.port))
+        except ConnectionRefusedError:
+            raise (
+                Exception(
+                    "Could not connect to server. Is it running? "
+                    "If you specified 'remote', then you must start it manually."
+                )
+            )
+
+        # time.sleep(pause_on_create)
+        self.do_process_msgs = True
+        self.th = Thread(target=self.proc_msg, args=(self.s,), daemon=True)
+        self.th.start()
+
+    def send(self, m):
+        self.msg = m
+
+    def send_now(self, msg):
+        logger.debug("send_now:" + msg)
+        self.s.sendall(msg.encode("utf-8"))
+
+    def on_msg_recv(self, j):
+        logger.debug("got:" + j["msg_type"])
+
+    def stop(self):
+        # signal proc_msg loop to stop, then wait for thread to finish
+        # close socket
+        self.do_process_msgs = False
+        if self.th is not None:
+            self.th.join()
+        if self.s is not None:
+            self.s.close()
+
+    def proc_msg(self, sock):  # noqa: C901
+        """
+        This is the thread message loop to process messages.
+        We will send any message that is queued via the self.msg variable
+        when our socket is in a writable state.
+        And we will read any messages when it's in a readable state and then
+        call self.on_msg_recv with the json object message.
+        """
+        sock.setblocking(0)
+        inputs = [sock]
+        outputs = [sock]
+        localbuffer = ""
+
+        while self.do_process_msgs:
+            # without this sleep, I was getting very consistent socket errors
+            # on Windows. Perhaps we don't need this sleep on other platforms.
+            time.sleep(self.poll_socket_sleep_sec)
+            try:
+                # test our socket for readable, writable states.
+                readable, writable, exceptional = select.select(
+                    inputs, outputs, inputs)
+
+                for s in readable:
+                    try:
+                        data = s.recv(1024 * 256)
+                    except ConnectionAbortedError:
+                        logger.warn("socket connection aborted")
+                        print("socket connection aborted")
+                        self.do_process_msgs = False
+                        break
+
+                    # we don't technically need to convert from bytes to string
+                    # for json.loads, but we do need a string in order to do
+                    # the split by \n newline char. This seperates each json msg.
+                    data = data.decode("utf-8")
+
+                    localbuffer += data
+
+                    n0 = localbuffer.find("{")
+                    n1 = localbuffer.rfind("}\n")
+                    if n1 >= 0 and 0 <= n0 < n1:  # there is at least one message :
+                        msgs = localbuffer[n0: n1 + 1].split("\n")
+                        localbuffer = localbuffer[n1:]
+
+                        for m in msgs:
+                            if len(m) <= 2:
+                                continue
+                            # Replace comma with dots for floats
+                            # useful when using unity in a language different from English
+                            m = replace_float_notation(m)
+                            try:
+                                j = json.loads(m)
+                            except Exception as e:
+                                logger.error("Exception:" + str(e))
+                                logger.error("json: " + m)
+                                continue
+
+                            if "msg_type" not in j:
+                                logger.error("Warning expected msg_type field")
+                                logger.error("json: " + m)
+                                continue
+                            else:
+                                self.on_msg_recv(j)
+
+                for s in writable:
+                    if self.msg is not None:
+                        logger.debug("sending " + self.msg)
+                        s.sendall(self.msg.encode("utf-8"))
+                        self.msg = None
+
+                if len(exceptional) > 0:
+                    logger.error("problems w sockets!")
+
+            except Exception as e:
+                print("Exception:", e)
+                self.aborted = True
+                self.on_msg_recv({"msg_type": "aborted"})
+                break
+
+###########################################
+
+
+class SimpleClient(SDClient):
+
+    def __init__(self, address, poll_socket_sleep_time=0.01, verbose=True):
+        super().__init__(*address, poll_socket_sleep_time=poll_socket_sleep_time)
+        self.last_image = None
+        self.sub_loaded = False
+        self.verbose = verbose
+        self.last_time = time.time()
+
+    def on_msg_recv(self, json_packet):
+        if json_packet['msg_type'] == "sub_loaded":
+            self.sub_loaded = True
+
+        if json_packet['msg_type'] == "telemetry":
+            imgString = json_packet["CameraSensor"]
+            # here is the image !
+            image = Image.open(BytesIO(base64.b64decode(imgString)))
+            self.last_image = cv2.cvtColor(np.asarray(image), cv2.COLOR_RGB2BGR)
+
+            cv2.imshow("img", self.last_image)
+            cv2.waitKey(1)
+
+            if self.verbose:
+                print("img:", self.last_image.shape)
+
+            # don't have to, but to clean up the print, delete the image string.
+            del json_packet["CameraSensor"]
+
+        if self.verbose:
+            print("got:", json_packet)
+
+    def send_controls(self, up_force=0, forward_force=0, roll_force=0, pitch_force=0, yaw_force=0):
+        msg = {
+            "msg_type": "control",
+            "up_force": str(up_force),
+            "forward_force": str(forward_force),
+            "roll_force": str(roll_force),
+            "pitch_force": str(pitch_force),
+            "yaw_force": str(yaw_force)
+        }
+        self.send(json.dumps(msg))
+
+        # this sleep lets the SDClient thread poll our message and send it out.
+        time.sleep(self.poll_socket_sleep_sec)
+
+    def update(self):
+        # do what you want here
+        
+        video = cv2.VideoCapture("SpaWarsGate3.mov")
+#video = cv2.VideoCapture("gateC.mp4")
+#video = cv2.VideoCapture("gateB.mp4")
+#video = cv2.VideoCapture(0)
+
+        # Downscale the image to a reasonable size to reduce compute
+        scale = 1
+
+
+        # Minimize false detects by eliminating contours less than a percentage of the image
+        area_threshold = 0.01
+        croppedPixels = 150
+
+        ret, orig_frame = video.read()
+        width = orig_frame.shape[0]
+        height = orig_frame.shape[1] - croppedPixels
+        dim = (int(scale*height), int(scale*width))
+
+        while (True):
+
+            ret, orig_frame = video.read()
+            if not ret:
+                break
+
+            #ropped = orig_frame[croppedPixels:, :]
+            #cv2.imshow("cropped", cropped)
+         
+            orig_frame = cv2.resize(orig_frame, dim, interpolation = cv2.INTER_AREA)
+            frame = cv2.GaussianBlur(orig_frame, (5, 5), 0)
+            hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+            
+            mask0 = cv2.inRange(hsv,(0, 10, 10), (25, 255, 255) )
+            mask1 = cv2.inRange(hsv,(160, 10, 10), (179, 255, 255) )
+            # join masks
+            mask = mask0 + mask1
+            
+
+            ret, thresh = cv2.threshold(mask, 127, 255,0)
+             #Erosions and dilations
+             #erosions are apploed to reduce the size of foreground objects
+            kernel = np.ones((3,3),np.uint8)
+            eroded = cv2.erode(thresh, kernel, iterations=0)
+            dilated = cv2.dilate(eroded, kernel, iterations=3)
+            #cv2.imshow("dilated", dilated)
+            #cv2.waitKey(0)
+            #cv2.imshow("Edged", edged)
+         
+            dst = cv2.equalizeHist(dilated)
+            
+            cv2.imshow("equilized", dst)
+
+            cnts,hierarchy = cv2.findContours(dilated,cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+            #cv2.drawContours(orig_frame, cnts, -1, (0, 255, 0), 3)
+            cnts = sorted(cnts, key = cv2.contourArea, reverse = True)[:60]
+            
+            
+
+            boundingBoxes = np.empty((0, 4), float)
+            if len(cnts) > 0:
+
+                M = cv2.moments(cnts[0])
+                for c in cnts:
+                    rect = cv2.minAreaRect(c)
+                    #print("rect: {}".format(rect))
+
+                    # the order of the box points: bottom left, top left, top right,
+                    # bottom right
+                    box = cv2.boxPoints(rect)
+                    box = np.int0(box)
+
+                    #print("bounding box: {}".format(box))
+                    cv2.drawContours(orig_frame, [box], 0, (0, 0, 255), 2)
+                    #x,y,w,h = cv2.boundingRect(c)
+
+                    #boundingBoxes = np.append(boundingBoxes, np.array([[x,y,x+w,y+h]]), axis = 0)
+                    #cv2.rectangle(orig_frame,(x,y), (x+w, y+h), (255,0,0), 2)
+                    cv2.imshow("bounding rectangle",orig_frame)
+                    cv2.waitKey(0)
+
+                    #print(str(x/width) + " " + str(y/height) + " " + str((x+w)/width) + " " +  str((y+h)/height))
+
+                    box0 = (box[0])
+                    #print(box0[0]/width)
+                    #print(box0[1]/height)
+
+                    box1 = (box[1])
+                    #print(box1[0]/width)
+                    #print(box0[1]/height)
+
+                    box2 = (box[2])
+                    #print(box2[0]/width)
+                    #print(box2[1]/height)
+
+                    box3 = (box[3])
+                    #print(box3[0]/width)
+                    #print(box3[1]/height)
+
+                    boxSizeThreshold = 10
+
+                    if (box1[1]-box0[1])*(box3[0]-box0[0] > boxSizeThreshold ):
+                    #calculating middle point of box
+                        boxX = ((box1[0]+box2[0])/2)
+                        boxY = ((box2[1]+box3[1])/2)
+
+                        print("X", boxX, "Y", boxY)
+               
+                    else:
+                        boxX = -1
+                        boxY = -1
+                        print("no gate found")
+                time.sleep(.01)
+            key = cv2.waitKey(1)
+            if key == 27:
+                break
+
+        video.release()
+        cv2.destroyAllWindows()
+                
+                self.send_controls()
+
+
+###########################################
+# Make some clients and have them connect with the simulator
+
+def test_clients():
+    logging.basicConfig(level=logging.ERROR)
+
+    # test params
+    host = "127.0.0.1"
+    port = 9092
+    num_clients = 1
+    clients = []
+
+    # Start Clients
+    for _ in range(0, num_clients):
+        c = SimpleClient(address=(host, port))
+        clients.append(c)
+
+    time.sleep(1)
+
+    # Send random controls
+    do_drive = True
+    while do_drive:
+        for c in clients:
+            c.update()
+            if c.aborted:
+                print("Client socket problem, stopping driving.")
                 do_drive = False
+
+    time.sleep(3.0)
+
+    # Close down clients
+    print("waiting for msg loop to stop")
+    for c in clients:
+        c.stop()
+
+    print("clients to stopped")
 
 
 if __name__ == "__main__":
-
-    client = SimpleClient("127.0.0.1", 9092, [9093, 9094])
+    test_clients()
