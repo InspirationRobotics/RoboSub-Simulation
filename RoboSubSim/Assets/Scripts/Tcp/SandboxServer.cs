@@ -80,7 +80,7 @@ public class SandboxServer : MonoBehaviour
             if (_server.debug)
                 Debug.Log("spawning sub.");
 
-            spawner.SpawnNewSub(client.gameObject.GetComponent<tk.JsonTcpClient>());
+            spawner.SpawnNewSub(client.gameObject.GetComponent<tk.JsonTcpClient>(), client.gameObject.GetComponent<tk.JsonUdpClient>());
         }
     }
 
