@@ -7,7 +7,7 @@ public class Submarine : MonoBehaviour
 {
     Rigidbody rb;
     public float waterLevel = 0f;
-    public float waterDrag = 5f;
+    public float waterDrag = 1f;
 
     public float upForce = 0f;
     public float forwardForce = 0f;
@@ -30,9 +30,9 @@ public class Submarine : MonoBehaviour
     void FixedUpdate()
     {
         if (upForce != 0f) { rb.AddRelativeForce(Vector3.up * upForce, ForceMode.Acceleration); }
-        if (forwardForce != 0f) { rb.AddRelativeForce(Vector3.right * forwardForce, ForceMode.Acceleration); }
-        if (rollForce != 0f) { rb.AddRelativeTorque(Vector3.right * rollForce, ForceMode.Acceleration); }
-        if (pitchForce != 0f) { rb.AddRelativeTorque(Vector3.forward * pitchForce, ForceMode.Acceleration); }
+        if (forwardForce != 0f) { rb.AddRelativeForce(Vector3.forward * forwardForce, ForceMode.Acceleration); }
+        if (rollForce != 0f) { rb.AddRelativeTorque(Vector3.forward * rollForce, ForceMode.Acceleration); }
+        if (pitchForce != 0f) { rb.AddRelativeTorque(Vector3.right * pitchForce, ForceMode.Acceleration); }
         if (yawForce != 0f) { rb.AddRelativeTorque(Vector3.up * yawForce, ForceMode.Acceleration); }
 
         if (transform.position.y < waterLevel)

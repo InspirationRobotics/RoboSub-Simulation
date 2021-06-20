@@ -20,7 +20,7 @@ public class SubmarineSpawner : MonoBehaviour
         return null;
     }
 
-    public GameObject SpawnNewSub(tk.JsonTcpClient client)
+    public GameObject SpawnNewSub(tk.JsonTcpClient _TcpClient, tk.JsonUdpClient _UdpClient)
     {
         if (subPrefab == null)
         {
@@ -32,17 +32,17 @@ public class SubmarineSpawner : MonoBehaviour
         go.transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
         subs.Add(go);
 
-        GameObject TcpClientObj = getChildGameObject(go, "TCPClient");
-        if (TcpClientObj != null)
+        GameObject TcpUdpClientObj = getChildGameObject(go, "TcpUdpClient");
+        if (TcpUdpClientObj != null)
         {
             // without this it will not connect.
-            TcpClientObj.SetActive(true);
+            TcpUdpClientObj.SetActive(true);
 
             // now set the connection settings.
-            tk.TcpSubHandler subHandler = TcpClientObj.GetComponent<tk.TcpSubHandler>();
+            tk.TcpUdpSubHandler subHandler = TcpUdpClientObj.GetComponent<tk.TcpUdpSubHandler>();
 
             if (subHandler != null)
-                subHandler.Init(client);
+                subHandler.Init(_TcpClient, _UdpClient);
         }
 
         manageCamera();
@@ -56,11 +56,11 @@ public class SubmarineSpawner : MonoBehaviour
 
         foreach (GameObject go in subs)
         {
-            GameObject TcpClientObj = getChildGameObject(go, "TCPClient");
+            GameObject TcpUdpClientObj = getChildGameObject(go, "TcpUdpClient");
 
-            if (TcpClientObj != null)
+            if (TcpUdpClientObj != null)
             {
-                tk.TcpSubHandler handler = TcpClientObj.GetComponent<tk.TcpSubHandler>();
+                tk.TcpUdpSubHandler handler = TcpUdpClientObj.GetComponent<tk.TcpUdpSubHandler>();
 
                 if (handler != null && handler.GetClient() == client)
                 {

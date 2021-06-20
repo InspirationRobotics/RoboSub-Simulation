@@ -160,26 +160,26 @@ namespace tk
         private void ReceiveCallback(IAsyncResult AR)
         {
             //Check how much bytes are recieved and call EndRecieve to finalize handshake
-            int recieved = 0;
+            int received = 0;
 
             try
             {
-                recieved = _clientSocket.EndReceive(AR);
+                received = _clientSocket.EndReceive(AR);
             }
             catch(SocketException e)
             {
-                recieved = 0;
+                received = 0;
                 dropped = true;
                 Debug.LogWarning("Exception on recv. Connection dropped.");
             }
             
 
-            if (recieved <= 0)
+            if (received <= 0)
                 return;
 
-            //Copy the recieved data into new buffer , to avoid null bytes
-            byte[] recData = new byte[recieved];
-            Buffer.BlockCopy(_recieveBuffer, 0, recData, 0, recieved);
+            //Copy the received data into new buffer , to avoid null bytes
+            byte[] recData = new byte[received];
+            Buffer.BlockCopy(_recieveBuffer, 0, recData, 0, received);
 
             if (debug)
             {
