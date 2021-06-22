@@ -67,13 +67,13 @@ MonoBehaviour:
     m_Value: 0
   albedo:
     m_OverrideState: 1
-    m_Value: {r: 0.11372547, g: 0.79856396, b: 0.9137255, a: 1}
+    m_Value: {r: 0.007843138, g: 0.65882355, b: 0.67058825, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
   globalLightProbeDimmer:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.506
     min: 0
     max: 1
   depthExtent:
