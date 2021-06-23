@@ -31,4 +31,4 @@ class SimpleClient():
 
 if __name__ == "__main__":
 
-    client = SimpleClient("127.0.0.1", 9092, [9093, 9094])
+    client = SimpleClient("127.0.0.1", 9093, [9093, 9094])
