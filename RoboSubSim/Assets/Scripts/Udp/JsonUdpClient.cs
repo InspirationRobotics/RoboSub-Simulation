@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Net;
 using System.Net.Sockets;
+using System.Linq;
 
 namespace tk
 {
@@ -12,9 +13,11 @@ namespace tk
         public int[] ports = new int[] { 9093, 9094 };
 
         const string packetTerminationChar = "\n";
+        const int maxDgramSize = 65536 - 64;
 
         IPEndPoint remoteEndPoint;
         UdpClient client = new UdpClient();
+
 
         public void SendMsg(JSONObject msg)
         {
@@ -24,7 +27,16 @@ namespace tk
             foreach (int port in ports)
             {
                 remoteEndPoint = new IPEndPoint(IPAddress.Parse(IP), port);
-                client.Send(data, data.Length, remoteEndPoint);
+
+                int numSegments = Mathf.CeilToInt((float)data.Length / (float)maxDgramSize);
+                // if the packet is too large, split it into smaller segments
+                for (int i = 0; i < numSegments; i++)
+                {
+                    byte[] sliced_data = (data.Skip(i * maxDgramSize).Take(maxDgramSize)).ToArray();
+                    client.Client.SendTo(sliced_data, remoteEndPoint);
+                }
+
+
             }
         }
 

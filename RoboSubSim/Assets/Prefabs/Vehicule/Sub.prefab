@@ -145,8 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76dd92af4c356c4cad63a7f2e561327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterLevel: 11.5
-  waterDrag: 5
+  waterLevel: 12
+  waterDrag: 1
   upForce: 0
   forwardForce: 0
   rollForce: 0
