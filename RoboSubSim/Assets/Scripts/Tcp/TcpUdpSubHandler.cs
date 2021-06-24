@@ -16,7 +16,7 @@ namespace tk
         private tk.JsonUdpClient UdpClient;
 
         float timeSinceLastCapture = 0.0f;
-        float transferRate = 5.0f;
+        float transferRate = 20.0f;
         bool bResetSub = false;
 
         void Awake()
