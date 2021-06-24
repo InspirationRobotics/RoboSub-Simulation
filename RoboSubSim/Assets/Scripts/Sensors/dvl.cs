@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class dvl : MonoBehaviour
+public class dvl : MonoBehaviour, ISensor
 
 {
     public Rigidbody DVL;
@@ -16,12 +16,14 @@ public class dvl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        vel = DVL.velocity;
-        print(vel.magnitude);
+        
     }
-    void OnGUI()
+    public JSONObject RequestObs(JSONObject json)
     {
-        GUI.Label(new Rect(10, 10, 100, 20), vel.magnitude.ToString());
+        vel = DVL.velocity.magnitude;
+
+        json.AddField(transform.name, vel);
+        return json;
     }
 
 }

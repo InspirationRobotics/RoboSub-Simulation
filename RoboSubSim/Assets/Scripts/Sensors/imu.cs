@@ -16,6 +16,10 @@ public class imu : MonoBehaviour, ISensor
 
     // Update is called once per frame
     public void update ()
+    {   
+    }
+
+    public JSONObject RequestObs(JSONObject json)
     {
         Roll = device.transform.localRotation.eulerAngles.z;
         Pitch = device.transform.localRotation.eulerAngles.x;
@@ -25,12 +29,7 @@ public class imu : MonoBehaviour, ISensor
         pos.AddField("Pitch", Pitch);
         pos.AddField("Yaw", Yaw);
 
-
-        
-    }
-    public JSONObject RequestObs(JSONObject json)
-    {
-        json.AddField(transform.name, "imuuu");
+        json.AddField(transform.name, pos);
         return json;
     }
 }
