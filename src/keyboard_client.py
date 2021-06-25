@@ -55,7 +55,7 @@ class SimpleClient():
             up_force=up-down,
             forward_force=forward-backward,
             roll_force=roll_left-roll_right,
-            yaw_force=left-right)
+            yaw_force=right-left)
 
     def drive_loop(self):
         do_drive = True

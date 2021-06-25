@@ -84,8 +84,6 @@ class SDUdpClient:
                 msgs = localbuffer[n0: n1 + 1].split("\n")
                 localbuffer = localbuffer[n1:]
 
-                # print(msgs)
-
                 for m in msgs:
                     m = replace_float_notation(m)
                     j = json.loads(m)
@@ -120,6 +118,9 @@ class SimpleUdpClient(SDUdpClient):
 
             # don't have to, but to clean up the print, delete the image string.
             del json_packet["CameraSensor"]
+            del json_packet["CameraSensor (1)"]
+
+            print(json_packet)
 
 
 if __name__ == "__main__":
