@@ -80,11 +80,16 @@ public class SubmarineSpawner : MonoBehaviour
     {
         if (subs.Count == 0) { return; }
 
-        CameraFollow cm = mainCameraGO.GetComponent<CameraFollow>();
         GameObject sub = subs[0];
-        GameObject camTm = getChildGameObject(sub, "CameraTm");
 
+        CameraFollow cm = mainCameraGO.GetComponent<CameraFollow>();
+        GameObject camTm = getChildGameObject(sub, "CameraTm");
         cm.target = camTm.transform;
+
+        DrawSonar ds = mainCameraGO.GetComponent<DrawSonar>();
+        ds.subObj = sub;
+        ds.sonarSensors = sub.GetComponentsInChildren<SonarSensor>();
+
     }
 
 }
