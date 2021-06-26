@@ -26,8 +26,8 @@ def replace_float_notation(string):
     :param string: (str) The incorrect json string
     :return: (str) Valid JSON string
     """
-    regex_french_notation = r'"[a-zA-Z_]+":(?P<num>[0-9,E-]+),'
-    regex_end = r'"[a-zA-Z_]+":(?P<num>[0-9,E-]+)}'
+    regex_french_notation = r':(?P<num>[0-9,E-]+),'
+    regex_end = r':(?P<num>[0-9,E-]+)}'
 
     for regex in [regex_french_notation, regex_end]:
         matches = re.finditer(regex, string, re.MULTILINE)
@@ -118,7 +118,7 @@ class SimpleUdpClient(SDUdpClient):
 
             # don't have to, but to clean up the print, delete the image string.
             del json_packet["CameraSensor"]
-            del json_packet["CameraSensor (1)"]
+            del json_packet["CameraSensor_1"]
 
             print(json_packet)
 

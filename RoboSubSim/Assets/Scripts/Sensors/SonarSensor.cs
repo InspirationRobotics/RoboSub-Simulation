@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
-
+using System.Globalization;
 
 public class SonarSensor : MonoBehaviour, ISensor
 {
-    float maxRange;
+    public float maxRange = 50;
+    public Vector3 point;
 
     // are there layers we don't want to collide with?
     public string[] layerMaskNames;
@@ -36,7 +37,9 @@ public class SonarSensor : MonoBehaviour, ISensor
         if (Physics.Raycast(ray, out hit, maxRange, collMask))
         {
             distance = hit.distance;
+            point = hit.point;
         }
+        else { point = Vector3.zero; }
         return distance;
 
 

@@ -12,6 +12,8 @@ namespace tk
         Submarine sub;
         public GameObject[] sensorsGO;
         public ISensor[] sensors;
+        public bool isDemoSub = false;
+
         private tk.JsonTcpClient TcpClient;
         private tk.JsonUdpClient UdpClient;
 
@@ -41,6 +43,7 @@ namespace tk
             UdpClient = _UdpClient;
 
             if (TcpClient == null || UdpClient == null)
+                isDemoSub = true;
                 return;
 
             TcpClient.dispatchInMainThread = false; //too slow to wait.
@@ -107,7 +110,7 @@ namespace tk
         void SendTelemetry()
         {
 
-            if (TcpClient == null)
+            if (TcpClient == null || UdpClient == null)
                 return;
 
             JSONObject json = new JSONObject(JSONObject.Type.OBJECT);
