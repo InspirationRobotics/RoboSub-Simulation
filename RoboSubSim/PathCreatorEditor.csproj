@@ -47,11 +47,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\PathCreator\Core\Editor\PathEditor.cs" />
-     <Compile Include="Assets\PathCreator\Core\Editor\Helper\PathHandle.cs" />
-     <Compile Include="Assets\PathCreator\Core\Editor\Helper\ScreenSpacePolyLine.cs" />
-     <Compile Include="Assets\PathCreator\Core\Editor\Helper\MouseUtility.cs" />
-     <None Include="Assets\PathCreator\Core\Editor\PathCreatorEditor.asmdef" />
+     <Compile Include="Assets\whateverPackage\Core\Editor\PathEditor.cs" />
+     <Compile Include="Assets\whateverPackage\Core\Editor\Helper\PathHandle.cs" />
+     <Compile Include="Assets\whateverPackage\Core\Editor\Helper\ScreenSpacePolyLine.cs" />
+     <Compile Include="Assets\whateverPackage\Core\Editor\Helper\MouseUtility.cs" />
+     <None Include="Assets\whateverPackage\Core\Editor\PathCreatorEditor.asmdef" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

@@ -47,18 +47,18 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\PathCreator\Core\Runtime\Objects\PathSpace.cs" />
-     <Compile Include="Assets\PathCreator\Core\Runtime\Objects\MinMax3D.cs" />
-     <Compile Include="Assets\PathCreator\Core\Runtime\Objects\EndOfPathInstruction.cs" />
-     <Compile Include="Assets\PathCreator\Core\Runtime\Utility\MathUtility.cs" />
-     <Compile Include="Assets\PathCreator\Core\Runtime\Utility\CubicBezierUtility.cs" />
-     <Compile Include="Assets\PathCreator\Core\Runtime\Utility\VertexPathUtility.cs" />
-     <Compile Include="Assets\PathCreator\Core\Runtime\Objects\PathCreator.cs" />
-     <Compile Include="Assets\PathCreator\Core\Runtime\Objects\PathCreatorData.cs" />
-     <Compile Include="Assets\PathCreator\Core\Runtime\Objects\BezierPath.cs" />
-     <Compile Include="Assets\PathCreator\Core\Runtime\Objects\GlobalDisplaySettings.cs" />
-     <Compile Include="Assets\PathCreator\Core\Runtime\Objects\VertexPath.cs" />
-     <None Include="Assets\PathCreator\Core\Runtime\PathCreator.asmdef" />
+     <Compile Include="Assets\whateverPackage\Core\Runtime\Objects\PathSpace.cs" />
+     <Compile Include="Assets\whateverPackage\Core\Runtime\Objects\MinMax3D.cs" />
+     <Compile Include="Assets\whateverPackage\Core\Runtime\Objects\EndOfPathInstruction.cs" />
+     <Compile Include="Assets\whateverPackage\Core\Runtime\Utility\MathUtility.cs" />
+     <Compile Include="Assets\whateverPackage\Core\Runtime\Utility\CubicBezierUtility.cs" />
+     <Compile Include="Assets\whateverPackage\Core\Runtime\Utility\VertexPathUtility.cs" />
+     <Compile Include="Assets\whateverPackage\Core\Runtime\Objects\PathCreator.cs" />
+     <Compile Include="Assets\whateverPackage\Core\Runtime\Objects\PathCreatorData.cs" />
+     <Compile Include="Assets\whateverPackage\Core\Runtime\Objects\BezierPath.cs" />
+     <Compile Include="Assets\whateverPackage\Core\Runtime\Objects\GlobalDisplaySettings.cs" />
+     <Compile Include="Assets\whateverPackage\Core\Runtime\Objects\VertexPath.cs" />
+     <None Include="Assets\whateverPackage\Core\Runtime\PathCreator.asmdef" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

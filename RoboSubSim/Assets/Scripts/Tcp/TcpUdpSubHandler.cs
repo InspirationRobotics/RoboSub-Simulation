@@ -8,11 +8,11 @@ namespace tk
 {
     public class TcpUdpSubHandler : MonoBehaviour
     {
-        public GameObject subObj;
         Submarine sub;
+        AutoSub autoSub;
+        public GameObject subObj;
         public GameObject[] sensorsGO;
         public ISensor[] sensors;
-        public AutoSub autoSub;
         public bool isDemoSub = false;
 
         private tk.JsonTcpClient TcpClient;
@@ -48,7 +48,6 @@ namespace tk
             {
                 isDemoSub = true;
                 autoSub.enabled = true;
-                autoSub.sub = sub;
             }
 
             else
