@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PathCreation;
 
 public class SubmarineSpawner : MonoBehaviour
 {
@@ -8,12 +9,19 @@ public class SubmarineSpawner : MonoBehaviour
     public GameObject mainCameraGO;
     public Transform spawnPoint;
     public bool doSpawnDemoSub = true;
+    public PathCreator demoPath;
 
     List<GameObject> subs = new List<GameObject>();
 
     public void Start()
     {
-        if (doSpawnDemoSub) { SpawnNewSub(null, null); }
+        if (doSpawnDemoSub)
+        {
+            GameObject subObj = SpawnNewSub(null, null);
+            AutoSub autoSub = subObj.GetComponent<AutoSub>();
+            autoSub.path = demoPath;
+            
+        }
     }
 
     static public GameObject getChildGameObject(GameObject fromGameObject, string withName)

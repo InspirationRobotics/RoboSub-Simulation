@@ -12,6 +12,7 @@ namespace tk
         Submarine sub;
         public GameObject[] sensorsGO;
         public ISensor[] sensors;
+        public AutoSub autoSub;
         public bool isDemoSub = false;
 
         private tk.JsonTcpClient TcpClient;
@@ -24,6 +25,7 @@ namespace tk
         void Awake()
         {
             sub = subObj.GetComponent<Submarine>();
+            autoSub = subObj.GetComponent<AutoSub>();
             sensors = new ISensor[sensorsGO.Length];
 
             for (int i = 0; i < sensorsGO.Length; i++)
@@ -43,14 +45,21 @@ namespace tk
             UdpClient = _UdpClient;
 
             if (TcpClient == null || UdpClient == null)
+            {
                 isDemoSub = true;
-                return;
+                autoSub.enabled = true;
+                autoSub.sub = sub;
+            }
 
-            TcpClient.dispatchInMainThread = false; //too slow to wait.
-            TcpClient.dispatcher.Register("get_protocol_version", new tk.Delegates.OnMsgRecv(OnProtocolVersion));
-            TcpClient.dispatcher.Register("control", new tk.Delegates.OnMsgRecv(OnControlsRecv));
-            TcpClient.dispatcher.Register("reset_sub", new tk.Delegates.OnMsgRecv(OnResetSubRecv));
-            // client.dispatcher.Register("set_position", new tk.Delegates.OnMsgRecv(OnSetPosition));
+            else
+            {
+                TcpClient.dispatchInMainThread = false; //too slow to wait.
+                TcpClient.dispatcher.Register("get_protocol_version", new tk.Delegates.OnMsgRecv(OnProtocolVersion));
+                TcpClient.dispatcher.Register("control", new tk.Delegates.OnMsgRecv(OnControlsRecv));
+                TcpClient.dispatcher.Register("reset_sub", new tk.Delegates.OnMsgRecv(OnResetSubRecv));
+                // client.dispatcher.Register("set_position", new tk.Delegates.OnMsgRecv(OnSetPosition));
+            }
+
         }
 
 
@@ -134,7 +143,7 @@ namespace tk
             }
 
             timeSinceLastCapture += Time.deltaTime;
-            if (timeSinceLastCapture > 1.0f / transferRate)
+            if (timeSinceLastCapture > 1.0f / transferRate && !isDemoSub)
             {
                 timeSinceLastCapture -= (1.0f / transferRate);
                 SendTelemetry();

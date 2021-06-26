@@ -2399,7 +2399,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575166579}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 14.74, y: 10.66, z: -17.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1308758693}
@@ -2420,19 +2420,37 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -2, y: 0, z: 0}
-      - {x: -1, y: 0.5, z: 0}
-      - {x: 1, y: -0.5, z: 0}
-      - {x: 2, y: 0, z: 0}
-      isClosed: 0
+      - {x: -2.0182686, y: -0.6187668, z: -0.16933632}
+      - {x: -2.947334, y: -0.623798, z: -1.2512181}
+      - {x: -4.0627956, y: -0.42013243, z: -3.2736254}
+      - {x: -3.640954, y: -0.47130203, z: -4.634907}
+      - {x: -3.332131, y: -0.5087624, z: -5.631478}
+      - {x: -1.8401699, y: -0.9426694, z: -6.5196767}
+      - {x: -0.81696606, y: -0.77771187, z: -6.64526}
+      - {x: 0.22640169, y: -0.60950357, z: -6.773318}
+      - {x: 1.3450863, y: 0.36871016, z: -5.913019}
+      - {x: 2.2221432, y: 0.48893738, z: -5.3217278}
+      - {x: 3.7306714, y: 0.6957269, z: -4.3047123}
+      - {x: 6.488572, y: -0.19502357, z: -2.9562082}
+      - {x: 6.5796375, y: -0.37580776, z: -1.136383}
+      - {x: 6.655265, y: -0.5259441, z: 0.37493217}
+      - {x: 4.8228817, y: -0.34971014, z: 2.4697022}
+      - {x: 3.329424, y: -0.38934612, z: 2.7531576}
+      - {x: 1.5325801, y: -0.4370339, z: 3.094195}
+      - {x: -0.8263401, y: -0.6123121, z: 1.2186452}
+      isClosed: 1
       space: 0
-      controlMode: 0
+      controlMode: 3
       autoControlLength: 0.3
       boundsUpToDate: 0
       bounds:
-        m_Center: {x: 0, y: 0, z: 0}
-        m_Extent: {x: 0, y: 0, z: 0}
+        m_Center: {x: 1.5365248, y: 0.37909114, z: -1.6177449}
+        m_Extent: {x: 5.2855344, y: 3.2894926, z: 4.427795}
       perAnchorNormalsAngle:
+      - 0
+      - 0
+      - 0
+      - 0
       - 0
       - 0
       globalNormalsAngle: 0
@@ -2447,16 +2465,16 @@ MonoBehaviour:
     displayControlPoints: 1
     bezierHandleScale: 1
     globalDisplaySettingsFoldout: 0
-    keepConstantHandleSize: 0
+    keepConstantHandleSize: 1
     showNormalsInVertexMode: 0
     showBezierPathInVertexMode: 0
-    showDisplayOptions: 0
+    showDisplayOptions: 1
     showPathOptions: 1
     showVertexPathDisplayOptions: 0
     showVertexPathOptions: 1
     showNormals: 0
     showNormalsHelpInfo: 0
-    tabIndex: 0
+    tabIndex: 1
   initialized: 1
 --- !u!1001 &1580027417
 PrefabInstance:
@@ -2553,7 +2571,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh51738
+  m_Name: pb_Mesh21700
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

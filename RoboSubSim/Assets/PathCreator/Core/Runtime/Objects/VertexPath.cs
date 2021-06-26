@@ -32,7 +32,7 @@ namespace PathCreation {
         /// Equal to (0,0,-1) for 2D paths, and (0,1,0) for XZ paths
         public readonly Vector3 up;
 
-        // Default values and constants:
+        // Default values and constants:    
         const int accuracy = 10; // A scalar for how many times bezier path is divided when determining vertex positions
         const float minVertexSpacing = .01f;
 
@@ -140,7 +140,7 @@ namespace PathCreation {
                     }
                     for (int i = 0; i < num; i++) {
                         int vertIndex = startVertIndex + i;
-                        float t = num == 1 ? 1f : i / (num - 1f);
+                        float t = i / (num - 1f);
                         float angle = startAngle + deltaAngle * t;
                         Quaternion rot = Quaternion.AngleAxis (angle, localTangents[vertIndex]);
                         localNormals[vertIndex] = (rot * localNormals[vertIndex]) * ((bezierPath.FlipNormals) ? -1 : 1);
@@ -228,29 +228,19 @@ namespace PathCreation {
 
         /// Finds the closest point on the path from any point in the world
         public Vector3 GetClosestPointOnPath (Vector3 worldPoint) {
-            // Transform the provided worldPoint into VertexPath local-space.
-            // This allows to do math on the localPoint's, thus avoiding the need to
-            // transform each local vertexpath point into world space via GetPoint.
-            Vector3 localPoint = MathUtility.InverseTransformPoint(worldPoint, transform, space);
-
-            TimeOnPathData data = CalculateClosestPointOnPathData (localPoint);
-            Vector3 localResult = Vector3.Lerp (localPoints[data.previousIndex], localPoints[data.nextIndex], data.percentBetweenIndices);
-
-            // Transform local result into world space
-            return MathUtility.TransformPoint(localResult, transform, space);
+            TimeOnPathData data = CalculateClosestPointOnPathData (worldPoint);
+            return Vector3.Lerp (GetPoint (data.previousIndex), GetPoint (data.nextIndex), data.percentBetweenIndices);
         }
 
         /// Finds the 'time' (0=start of path, 1=end of path) along the path that is closest to the given point
         public float GetClosestTimeOnPath (Vector3 worldPoint) {
-            Vector3 localPoint = MathUtility.InverseTransformPoint(worldPoint, transform, space);
-            TimeOnPathData data = CalculateClosestPointOnPathData (localPoint);
+            TimeOnPathData data = CalculateClosestPointOnPathData (worldPoint);
             return Mathf.Lerp (times[data.previousIndex], times[data.nextIndex], data.percentBetweenIndices);
         }
 
         /// Finds the distance along the path that is closest to the given point
         public float GetClosestDistanceAlongPath (Vector3 worldPoint) {
-            Vector3 localPoint = MathUtility.InverseTransformPoint(worldPoint, transform, space);
-            TimeOnPathData data = CalculateClosestPointOnPathData(localPoint);
+            TimeOnPathData data = CalculateClosestPointOnPathData (worldPoint);
             return Mathf.Lerp (cumulativeLengthAtEachVertex[data.previousIndex], cumulativeLengthAtEachVertex[data.nextIndex], data.percentBetweenIndices);
         }
 
@@ -258,7 +248,7 @@ namespace PathCreation {
 
         #region Internal methods
 
-        /// For a given value 't' between 0 and 1, calculate the indices of the two vertices before and after t.
+        /// For a given value 't' between 0 and 1, calculate the indices of the two vertices before and after t. 
         /// Also calculate how far t is between those two vertices as a percentage between 0 and 1.
         TimeOnPathData CalculatePercentOnPathData (float t, EndOfPathInstruction endOfPathInstruction) {
             // Constrain t based on the end of path instruction
@@ -305,7 +295,7 @@ namespace PathCreation {
         }
 
         /// Calculate time data for closest point on the path from given world point
-        TimeOnPathData CalculateClosestPointOnPathData (Vector3 localPoint) {
+        TimeOnPathData CalculateClosestPointOnPathData (Vector3 worldPoint) {
             float minSqrDst = float.MaxValue;
             Vector3 closestPoint = Vector3.zero;
             int closestSegmentIndexA = 0;
@@ -321,8 +311,8 @@ namespace PathCreation {
                     }
                 }
 
-                Vector3 closestPointOnSegment = MathUtility.ClosestPointOnLineSegment (localPoint, localPoints[i], localPoints[nextI]);
-                float sqrDst = (localPoint - closestPointOnSegment).sqrMagnitude;
+                Vector3 closestPointOnSegment = MathUtility.ClosestPointOnLineSegment (worldPoint, GetPoint (i), GetPoint (nextI));
+                float sqrDst = (worldPoint - closestPointOnSegment).sqrMagnitude;
                 if (sqrDst < minSqrDst) {
                     minSqrDst = sqrDst;
                     closestPoint = closestPointOnSegment;
@@ -331,8 +321,8 @@ namespace PathCreation {
                 }
 
             }
-            float closestSegmentLength = (localPoints[closestSegmentIndexA] - localPoints[closestSegmentIndexB]).magnitude;
-            float t = (closestPoint - localPoints[closestSegmentIndexA]).magnitude / closestSegmentLength;
+            float closestSegmentLength = (GetPoint (closestSegmentIndexA) - GetPoint (closestSegmentIndexB)).magnitude;
+            float t = (closestPoint - GetPoint (closestSegmentIndexA)).magnitude / closestSegmentLength;
             return new TimeOnPathData (closestSegmentIndexA, closestSegmentIndexB, t);
         }
 
