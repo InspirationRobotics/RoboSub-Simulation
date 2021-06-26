@@ -7,8 +7,14 @@ public class SubmarineSpawner : MonoBehaviour
     public GameObject subPrefab;
     public GameObject mainCameraGO;
     public Transform spawnPoint;
+    public bool doSpawnDemoSub = true;
 
     List<GameObject> subs = new List<GameObject>();
+
+    public void Start()
+    {
+        if (doSpawnDemoSub) { SpawnNewSub(null, null); }
+    }
 
     static public GameObject getChildGameObject(GameObject fromGameObject, string withName)
     {
