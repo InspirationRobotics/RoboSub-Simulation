@@ -8,11 +8,12 @@ namespace tk
 {
     public class TcpUdpSubHandler : MonoBehaviour
     {
-        public GameObject subObj;
         Submarine sub;
+        public GameObject subObj;
         public GameObject[] sensorsGO;
         public ISensor[] sensors;
         public bool isDemoSub = false;
+        public NavPath demoPath;
 
         private tk.JsonTcpClient TcpClient;
         private tk.JsonUdpClient UdpClient;
@@ -43,14 +44,19 @@ namespace tk
             UdpClient = _UdpClient;
 
             if (TcpClient == null || UdpClient == null)
+            {
                 isDemoSub = true;
-                return;
+            }
 
-            TcpClient.dispatchInMainThread = false; //too slow to wait.
-            TcpClient.dispatcher.Register("get_protocol_version", new tk.Delegates.OnMsgRecv(OnProtocolVersion));
-            TcpClient.dispatcher.Register("control", new tk.Delegates.OnMsgRecv(OnControlsRecv));
-            TcpClient.dispatcher.Register("reset_sub", new tk.Delegates.OnMsgRecv(OnResetSubRecv));
-            // client.dispatcher.Register("set_position", new tk.Delegates.OnMsgRecv(OnSetPosition));
+            else
+            {
+                TcpClient.dispatchInMainThread = false; //too slow to wait.
+                TcpClient.dispatcher.Register("get_protocol_version", new tk.Delegates.OnMsgRecv(OnProtocolVersion));
+                TcpClient.dispatcher.Register("control", new tk.Delegates.OnMsgRecv(OnControlsRecv));
+                TcpClient.dispatcher.Register("reset_sub", new tk.Delegates.OnMsgRecv(OnResetSubRecv));
+                // client.dispatcher.Register("set_position", new tk.Delegates.OnMsgRecv(OnSetPosition));
+            }
+
         }
 
 
@@ -134,7 +140,7 @@ namespace tk
             }
 
             timeSinceLastCapture += Time.deltaTime;
-            if (timeSinceLastCapture > 1.0f / transferRate)
+            if (timeSinceLastCapture > 1.0f / transferRate && !isDemoSub)
             {
                 timeSinceLastCapture -= (1.0f / transferRate);
                 SendTelemetry();
