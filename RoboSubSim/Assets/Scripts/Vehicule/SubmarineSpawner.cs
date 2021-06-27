@@ -8,7 +8,7 @@ public class SubmarineSpawner : MonoBehaviour
     public GameObject mainCameraGO;
     public Transform spawnPoint;
     public bool doSpawnDemoSub = true;
-    // public PathCreator demoPath;
+    public NavPath demoPath;
 
     List<GameObject> subs = new List<GameObject>();
 
@@ -17,8 +17,10 @@ public class SubmarineSpawner : MonoBehaviour
         if (doSpawnDemoSub)
         {
             GameObject subObj = SpawnNewSub(null, null);
-            AutoSub autoSub = subObj.GetComponent<AutoSub>();
-            // autoSub.path = demoPath;
+            AutoSub autoSub = subObj.GetComponentInChildren<AutoSub>();
+            autoSub.path = demoPath;
+            autoSub.enabled = true;
+            autoSub.Init();
         }
     }
 
@@ -98,9 +100,9 @@ public class SubmarineSpawner : MonoBehaviour
         GameObject camTm = getChildGameObject(sub, "CameraTm");
         cm.target = camTm.transform;
 
-        DrawSonar ds = mainCameraGO.GetComponent<DrawSonar>();
-        ds.subObj = sub;
-        ds.sonarSensors = sub.GetComponentsInChildren<SonarSensor>();
+        // DrawSonar ds = mainCameraGO.GetComponent<DrawSonar>();
+        // ds.subObj = sub;
+        // ds.sonarSensors = sub.GetComponentsInChildren<SonarSensor>();
 
     }
 

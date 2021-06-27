@@ -9,11 +9,11 @@ namespace tk
     public class TcpUdpSubHandler : MonoBehaviour
     {
         Submarine sub;
-        AutoSub autoSub;
         public GameObject subObj;
         public GameObject[] sensorsGO;
         public ISensor[] sensors;
         public bool isDemoSub = false;
+        public NavPath demoPath;
 
         private tk.JsonTcpClient TcpClient;
         private tk.JsonUdpClient UdpClient;
@@ -25,7 +25,6 @@ namespace tk
         void Awake()
         {
             sub = subObj.GetComponent<Submarine>();
-            autoSub = subObj.GetComponent<AutoSub>();
             sensors = new ISensor[sensorsGO.Length];
 
             for (int i = 0; i < sensorsGO.Length; i++)
@@ -47,7 +46,6 @@ namespace tk
             if (TcpClient == null || UdpClient == null)
             {
                 isDemoSub = true;
-                autoSub.enabled = true;
             }
 
             else

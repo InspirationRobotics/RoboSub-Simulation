@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 6427382313136455066}
   - component: {fileID: 3129708493744957836}
   m_Layer: 0
-  m_Name: autoSub
+  m_Name: AutoSub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sub: {fileID: -7227540521036404543}
+  path: {fileID: 0}
 --- !u!1 &2913737659681783757
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,6 +794,7 @@ MonoBehaviour:
   - {fileID: 312296643662096945}
   - {fileID: 7429963009888607800}
   isDemoSub: 0
+  demoPath: {fileID: 0}
 --- !u!1 &7257204732369072528
 GameObject:
   m_ObjectHideFlags: 0
