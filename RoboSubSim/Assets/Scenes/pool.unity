@@ -956,6 +956,10 @@ PrefabInstance:
       propertyPath: mainCameraGO
       value: 
       objectReference: {fileID: 212894380}
+    - target: {fileID: 4409212873493201072, guid: 1c83b656eed6fec41be624d40232727e, type: 3}
+      propertyPath: doSpawnDemoSub
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6566884226613441659, guid: 1c83b656eed6fec41be624d40232727e, type: 3}
       propertyPath: m_Name
       value: _controllers
