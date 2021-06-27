@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Submarine : MonoBehaviour
 {
-    Rigidbody rb;
+    public Rigidbody rb;
     public float waterLevel = 0f;
     public float waterDrag = 1f;
 
@@ -51,6 +51,15 @@ public class Submarine : MonoBehaviour
             rb.useGravity = true;
             rb.drag = 0;
         }
+    }
+
+    public void ResetForces()
+    {
+        upForce = 0f;
+        forwardForce = 0f;
+        rollForce = 0f;
+        pitchForce = 0f;
+        yawForce = 0f;
     }
 
     public void RestorePosRot()
