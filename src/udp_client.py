@@ -94,7 +94,8 @@ class SDUdpClient:
                         self.on_msg_recv(j)
 
             except Exception:
-                localbuffer = "" # empty the buffer (most likely the cause of the miss-reading)
+                # empty the buffer (most likely the cause of the miss-reading)
+                localbuffer = ""
                 print("Got Exception")
                 continue
 
@@ -121,7 +122,7 @@ class SimpleUdpClient(SDUdpClient):
                 BytesIO(base64.b64decode(json_packet["CameraSensor_1"])))
             self.last_images[0] = cv2.cvtColor(
                 np.asarray(image), cv2.COLOR_RGB2BGR)
-  
+
             # display the image
             cv2.imshow(f"img_{self.port}_0", self.last_images[0])
             cv2.imshow(f"img_{self.port}_1", self.last_images[1])
