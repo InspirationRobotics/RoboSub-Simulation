@@ -74,7 +74,7 @@ public class AutoSub : MonoBehaviour
             if (Mathf.Abs(relativePos.z) < 0.05 && IsStable()) { forwarding = false; rotating = true; sub.ResetForces(); }
             else { sub.forwardForce = relativePos.z * 0.1f; }
 
-            if (isNearbyPoint(targetVertex, 0.5f) && IsStable())
+            if (isNearbyPoint(targetVertex, 1f) && IsStable())
             {
                 sub.ResetForces();
                 forwarding = false;

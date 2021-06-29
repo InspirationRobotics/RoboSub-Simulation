@@ -78,16 +78,25 @@ class SDUdpClient:
 
             localbuffer += data
 
-            n0 = localbuffer.find("{")
-            n1 = localbuffer.rfind("}\n")
-            if n1 >= 0 and 0 <= n0 < n1:  # there is at least one message :
-                msgs = localbuffer[n0: n1 + 1].split("\n")
-                localbuffer = localbuffer[n1:]
+            try:
+                n0 = localbuffer.find("{")
+                n1 = localbuffer.rfind("}\n")
+                if n1 >= 0 and 0 <= n0 < n1:  # there is at least one message :
+                    msgs = localbuffer[n0: n1 + 1].split("\n")
+                    localbuffer = localbuffer[n1:]
 
-                for m in msgs:
-                    m = replace_float_notation(m)
-                    j = json.loads(m)
-                    self.on_msg_recv(j)
+                    for m in msgs:
+                        if len(m) <= 2:
+                            continue
+
+                        m = replace_float_notation(m)
+                        j = json.loads(m)
+                        self.on_msg_recv(j)
+
+            except Exception:
+                localbuffer = "" # empty the buffer (most likely the cause of the miss-reading)
+                print("Got Exception")
+                continue
 
     def on_msg_recv(self, j):
         logger.debug("got:" + j["msg_type"])
@@ -97,33 +106,36 @@ class SimpleUdpClient(SDUdpClient):
 
     def __init__(self, address, verbose=True):
         super().__init__(*address)
-        self.last_image = None
+        self.last_images = [None, None]
         self.verbose = verbose
         self.name = str(random.random())
 
     def on_msg_recv(self, json_packet):
         if json_packet['msg_type'] == "telemetry":
-            imgString = json_packet["CameraSensor"]
-            # here is the image !
-            image = Image.open(BytesIO(base64.b64decode(imgString)))
-            self.last_image = cv2.cvtColor(
+            image = Image.open(
+                BytesIO(base64.b64decode(json_packet["CameraSensor"])))
+            self.last_images[1] = cv2.cvtColor(
                 np.asarray(image), cv2.COLOR_RGB2BGR)
 
+            image = Image.open(
+                BytesIO(base64.b64decode(json_packet["CameraSensor_1"])))
+            self.last_images[0] = cv2.cvtColor(
+                np.asarray(image), cv2.COLOR_RGB2BGR)
+  
             # display the image
-            cv2.imshow(f"img_{self.port}", self.last_image)
+            cv2.imshow(f"img_{self.port}_0", self.last_images[0])
+            cv2.imshow(f"img_{self.port}_1", self.last_images[1])
             cv2.waitKey(1)
-
-            if self.verbose:
-                print("img:", self.last_image.shape)
 
             # don't have to, but to clean up the print, delete the image string.
             del json_packet["CameraSensor"]
             del json_packet["CameraSensor_1"]
 
-            print(json_packet)
+            if self.verbose:
+                print(json_packet)
 
 
 if __name__ == "__main__":
     # test just the UDP
 
-    udp_client = SimpleUdpClient(("127.0.0.1", 9093))
+    udp_client = SimpleUdpClient(("127.0.0.1", 9094))
