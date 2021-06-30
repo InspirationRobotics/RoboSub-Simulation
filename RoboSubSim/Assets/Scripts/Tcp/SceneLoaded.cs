@@ -9,6 +9,8 @@ public class SceneLoaded : MonoBehaviour
         SandboxServer server = GameObject.FindObjectOfType<SandboxServer>();
 
         if (server)
-            server.OnSceneLoaded();
-    }    
+        {
+            // server.OnSceneLoaded();
+        }
+    }
 }

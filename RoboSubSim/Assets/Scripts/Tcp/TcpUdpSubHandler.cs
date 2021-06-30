@@ -13,7 +13,6 @@ namespace tk
         public GameObject[] sensorsGO;
         public ISensor[] sensors;
         public bool isDemoSub = false;
-        public NavPath demoPath;
 
         private tk.JsonTcpClient TcpClient;
         private tk.JsonUdpClient UdpClient;
@@ -115,8 +114,7 @@ namespace tk
 
         void SendTelemetry()
         {
-
-            if (TcpClient == null || UdpClient == null)
+            if (UdpClient == null)
                 return;
 
             JSONObject json = new JSONObject(JSONObject.Type.OBJECT);
@@ -127,6 +125,7 @@ namespace tk
                 sensor.RequestObs(json);
             }
 
+            Debug.Log("sending telemetry");
             UdpClient.SendMsg(json);
 
         }
@@ -140,7 +139,7 @@ namespace tk
             }
 
             timeSinceLastCapture += Time.deltaTime;
-            if (timeSinceLastCapture > 1.0f / transferRate && !isDemoSub)
+            if (timeSinceLastCapture > 1.0f / transferRate)
             {
                 timeSinceLastCapture -= (1.0f / transferRate);
                 SendTelemetry();

@@ -9,12 +9,16 @@ using System;
 [RequireComponent(typeof(tk.TcpServer))]
 public class SandboxServer : MonoBehaviour
 {
+    public int targetFrameRate = 60;
+
     public string host;
     public int port;
 
     tk.TcpServer _server = null;
 
     public GameObject clientTemplateObj = null;
+    public bool doSpawnDemoSub = false;
+    public bool doTransmitDemo = false;
 
     public void CheckCommandLineConnectArgs()
     {
@@ -36,6 +40,8 @@ public class SandboxServer : MonoBehaviour
     private void Awake()
     {
         _server = GetComponent<tk.TcpServer>();
+
+        Application.targetFrameRate = targetFrameRate;
     }
 
     // Start is called before the first frame update
@@ -48,6 +54,12 @@ public class SandboxServer : MonoBehaviour
         _server.onClientDisconntedCB += new tk.TcpServer.OnClientDisconnected(OnClientDisconnected);
 
         _server.Run(host, port);
+
+        if (doSpawnDemoSub)
+        {
+            OnClientConnected();
+            doSpawnDemoSub = false;
+        }
     }
 
     // It's our responsibility to create a GameObject with a TcpClient
@@ -67,12 +79,12 @@ public class SandboxServer : MonoBehaviour
         go.transform.parent = this.transform;
 
         tk.TcpClient client = go.GetComponent<tk.TcpClient>();
-        InitClient(client);
+        InitClient(go);
 
         return client;
     }
 
-    private void InitClient(tk.TcpClient client)
+    private void InitClient(GameObject goClient)
     {
         SubmarineSpawner spawner = GameObject.FindObjectOfType<SubmarineSpawner>();
         if (spawner != null)
@@ -80,20 +92,12 @@ public class SandboxServer : MonoBehaviour
             if (_server.debug)
                 Debug.Log("spawning sub.");
 
-            spawner.SpawnNewSub(client.gameObject.GetComponent<tk.JsonTcpClient>(), client.gameObject.GetComponent<tk.JsonUdpClient>());
-        }
-    }
-
-    public void OnSceneLoaded()
-    {
-        List<tk.TcpClient> clients = _server.GetClients();
-
-        foreach (tk.TcpClient client in clients)
-        {
-            if (_server.debug)
-                Debug.Log("init network client.");
-
-            InitClient(client);
+            if (doSpawnDemoSub && doTransmitDemo)
+                spawner.SpawnNewSub(null, goClient.GetComponent<tk.JsonUdpClient>());
+            else if(doSpawnDemoSub && !doTransmitDemo)
+                spawner.SpawnNewSub(null, null);
+            else
+                spawner.SpawnNewSub(goClient.GetComponent<tk.JsonTcpClient>(), goClient.GetComponent<tk.JsonUdpClient>());
         }
     }
 

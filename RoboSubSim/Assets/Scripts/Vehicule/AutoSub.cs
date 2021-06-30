@@ -10,12 +10,11 @@ public class AutoSub : MonoBehaviour
     Vector3[] vertices;
 
 
-    float t = 0;
-
     bool rotating = true; // first state
-    bool pitching = false; // second state
+    bool leveling = false; // second state
     bool forwarding = false; // third state
     bool rotReset = false; // last state (before moving to the next point)
+    bool pitching = false;
     bool rolling = false;
 
     public void Init()
@@ -34,7 +33,7 @@ public class AutoSub : MonoBehaviour
 
         // Debug.Log(relativePos.ToString());
 
-        if (rotReset)
+        if (rotReset) // get the sub in a stable orientation
         {
             Quaternion rot = sub.rb.rotation;
 
@@ -62,20 +61,20 @@ public class AutoSub : MonoBehaviour
 
         else if (rotating)
         {
-            if (Mathf.Abs(relativePosNorm.x) < 0.05 && IsStable()) { rotating = false; pitching = true; sub.ResetForces(); }
-            else { sub.yawForce = relativePosNorm.x * 0.1f; }
+            if (Mathf.Abs(relativePos.x) < 0.05 && IsStable()) { rotating = false; leveling = true; sub.ResetForces(); }
+            else { sub.yawForce = relativePos.x * 0.05f; }
         }
-        else if (pitching)
+        else if (leveling)
         {
-            if (Mathf.Abs(relativePosNorm.y) < 0.05 && IsStable()) { pitching = false; forwarding = true; sub.ResetForces(); }
-            else { sub.pitchForce = relativePosNorm.y * -0.1f; }
+            if (Mathf.Abs(relativePos.y) < 0.05 && IsStable()) { leveling = false; forwarding = true; sub.ResetForces(); }
+            else { sub.upForce = relativePos.y * 0.1f; }
         }
         else if (forwarding)
         {
-            if (Mathf.Abs(relativePosNorm.z) < 0.05 && IsStable()) { forwarding = false; rotating = true; sub.ResetForces(); }
-            else { sub.forwardForce = relativePosNorm.z * 0.1f; }
+            if (Mathf.Abs(relativePos.z) < 0.05 && IsStable()) { forwarding = false; rotating = true; sub.ResetForces(); }
+            else { sub.forwardForce = relativePos.z * 0.1f; }
 
-            if (isNearbyPoint(targetVertex, 0.5f) && IsStable())
+            if (isNearbyPoint(targetVertex, 1f) && IsStable())
             {
                 sub.ResetForces();
                 forwarding = false;

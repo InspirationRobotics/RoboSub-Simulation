@@ -272,6 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76dd92af4c356c4cad63a7f2e561327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   waterLevel: 12
   waterDrag: 1
   upForce: 0
@@ -788,11 +789,11 @@ MonoBehaviour:
   sensorsGO:
   - {fileID: 3879368632165008974}
   - {fileID: 3014043340050044859}
+  - {fileID: 312296643662096945}
+  - {fileID: 7429963009888607800}
   - {fileID: 3224100568732239017}
   - {fileID: 1276753512156067549}
   - {fileID: 9071414824842756082}
-  - {fileID: 312296643662096945}
-  - {fileID: 7429963009888607800}
   isDemoSub: 0
   demoPath: {fileID: 0}
 --- !u!1 &7257204732369072528

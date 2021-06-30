@@ -7,22 +7,9 @@ public class SubmarineSpawner : MonoBehaviour
     public GameObject subPrefab;
     public GameObject mainCameraGO;
     public Transform spawnPoint;
-    public bool doSpawnDemoSub = true;
     public NavPath demoPath;
 
     List<GameObject> subs = new List<GameObject>();
-
-    public void Start()
-    {
-        if (doSpawnDemoSub)
-        {
-            GameObject subObj = SpawnNewSub(null, null);
-            AutoSub autoSub = subObj.GetComponentInChildren<AutoSub>();
-            autoSub.path = demoPath;
-            autoSub.enabled = true;
-            autoSub.Init();
-        }
-    }
 
     static public GameObject getChildGameObject(GameObject fromGameObject, string withName)
     {
@@ -57,6 +44,14 @@ public class SubmarineSpawner : MonoBehaviour
 
             if (subHandler != null)
                 subHandler.Init(_TcpClient, _UdpClient);
+
+            if (subHandler.isDemoSub)
+            {
+                AutoSub autoSub = go.GetComponentInChildren<AutoSub>();
+                autoSub.path = demoPath;
+                autoSub.enabled = true;
+                autoSub.Init();
+            }
         }
 
         manageCamera();
