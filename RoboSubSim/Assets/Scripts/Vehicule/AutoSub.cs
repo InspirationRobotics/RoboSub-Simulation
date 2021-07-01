@@ -37,12 +37,7 @@ public class AutoSub : MonoBehaviour
         {
             Quaternion rot = sub.rb.rotation;
 
-            if (pitching)
-            {
-                if (Mathf.Abs(rot.z) < 0.01 && IsStable(0.01f, 0.01f)) { pitching = false; rolling = true; sub.ResetForces(); }
-                else { sub.pitchForce = rot.z * 0.1f; }
-            }
-            else if (rolling)
+            if (rolling)
             {
 
                 if (Mathf.Abs(rot.x) < 0.01 && IsStable(0.01f, 0.01f)) { rolling = false; pitching = true; sub.ResetForces(); }

@@ -12,7 +12,7 @@ namespace tk
     {
 
         // Our reference to the required 'base' component
-        private tk.TcpClient client;
+        public tk.TcpClient client;
 
         // This allows other objects to register for incoming json messages
         public tk.Dispatcher dispatcher;

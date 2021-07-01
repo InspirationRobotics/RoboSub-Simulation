@@ -49,6 +49,8 @@ namespace tk
 
             else
             {
+                UdpClient._tcpClient = TcpClient; // needed to send data to the clients
+
                 TcpClient.dispatchInMainThread = false; //too slow to wait.
                 TcpClient.dispatcher.Register("get_protocol_version", new tk.Delegates.OnMsgRecv(OnProtocolVersion));
                 TcpClient.dispatcher.Register("control", new tk.Delegates.OnMsgRecv(OnControlsRecv));

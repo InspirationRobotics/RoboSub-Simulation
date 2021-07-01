@@ -9,7 +9,8 @@ namespace tk
 
     public class JsonUdpClient : MonoBehaviour
     {
-        public string IP = "127.0.0.1";
+        private string ip;
+        public tk.JsonTcpClient _tcpClient;
         public int[] ports = new int[] { 9093, 9094 };
 
         const string packetTerminationChar = "\n";
@@ -21,12 +22,20 @@ namespace tk
 
         public void SendMsg(JSONObject msg)
         {
+            if (_tcpClient == null) { return; }
+
             string packet = msg.ToString() + packetTerminationChar;
             byte[] data = System.Text.Encoding.UTF8.GetBytes(packet);
 
+            if (ip == null)
+                ip = ((IPEndPoint)(_tcpClient.client._clientSocket.RemoteEndPoint)).Address.ToString();
+                if (ip == null)
+                    return;
+
             foreach (int port in ports)
             {
-                remoteEndPoint = new IPEndPoint(IPAddress.Parse(IP), port);
+                remoteEndPoint = new IPEndPoint(IPAddress.Parse(ip), port);
+                // remoteEndPoint = new IPEndPoint(IPAddress.Loopback, port);
 
                 int numSegments = Mathf.CeilToInt((float)data.Length / (float)maxDgramSize);
                 // if the packet is too large, split it into smaller segments

@@ -5,6 +5,7 @@ A basic script to control the sub using the keyboardS
 import tcp_client
 import udp_client
 import keyboard
+import time
 
 
 class SimpleClient():
@@ -16,6 +17,8 @@ class SimpleClient():
 
         self.tcp_client = tcp_client.SimpleTcpClient(
             (self.host, self.tcp_port))
+
+        time.sleep(1)
         self.udp_clients = [udp_client.SimpleUdpClient(
             (self.host, port)) for port in self.udp_ports]
 
@@ -29,14 +32,16 @@ class SimpleClient():
 
     def manual_steering(self):
         kb_keys = {
-            'forward': "w",
-            'backward': "s",
-            'left': "a",
-            'right': "d",
+            'forward': "up",
+            'backward': "down",
+            'left': "left",
+            'right': "right",
             'roll_right': "e",
-            'roll_left': "q",
+            'roll_left': "a",
             'up': 'r',
-            'down': 'f'
+            'down': 'f',
+            'pitch_up': 's',
+            'pitch_down': 'w'
         }
 
         up = self.is_key_pressed(kb_keys['up'])
@@ -51,11 +56,15 @@ class SimpleClient():
         roll_left = self.is_key_pressed(kb_keys['roll_left'])
         roll_right = self.is_key_pressed(kb_keys['roll_right'])
 
+        pitch_up = self.is_key_pressed(kb_keys['pitch_up'])
+        pitch_down = self.is_key_pressed(kb_keys['pitch_down'])
+
         self.tcp_client.send_controls(
             up_force=up-down,
             forward_force=forward-backward,
             roll_force=roll_left-roll_right,
-            yaw_force=right-left)
+            yaw_force=right-left,
+            pitch_force=pitch_up-pitch_down)
 
     def drive_loop(self):
         do_drive = True
@@ -68,4 +77,4 @@ class SimpleClient():
 
 if __name__ == "__main__":
 
-    client = SimpleClient("127.0.0.1", 9093, [9093, 9094])
+    client = SimpleClient("127.0.0.1", 9093, [9093])

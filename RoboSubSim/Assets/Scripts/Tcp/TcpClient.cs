@@ -10,7 +10,7 @@ namespace tk
     {
         public bool debug = false;
 
-        private Socket _clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        public Socket _clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         private byte[] _recieveBuffer = new byte[8142];
         private TcpServer _server = null;
 

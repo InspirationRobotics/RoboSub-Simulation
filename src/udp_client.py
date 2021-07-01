@@ -52,7 +52,7 @@ class SDUdpClient:
 
     def connect(self):
         self.socket = socket.socket(
-            socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+            socket.AF_INET, socket.SOCK_DGRAM)
 
         self.socket.bind((self.host, self.port))
         # self.socket.connect((self.host, self.port))

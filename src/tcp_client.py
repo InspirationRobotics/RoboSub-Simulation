@@ -203,3 +203,9 @@ class SimpleTcpClient(SDTcpClient):
     def update(self):
         # do what you want here
         self.send_controls()
+
+
+if __name__ == "__main__":
+    # test just the TCP
+
+    tcp_client = SimpleTcpClient(("127.0.0.1", 9093))
