@@ -4747,9 +4747,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Early access: https://github.com/InspirationRobotics/RoboSub-Simulation
-
-'
+  m_Text: 'Early access: https://github.com/InspirationRobotics/RoboSub-Simulation'
 --- !u!222 &1981688014
 CanvasRenderer:
   m_ObjectHideFlags: 0
