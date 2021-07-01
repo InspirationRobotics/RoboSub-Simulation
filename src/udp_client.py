@@ -54,8 +54,11 @@ class SDUdpClient:
         self.socket = socket.socket(
             socket.AF_INET, socket.SOCK_DGRAM)
 
-        self.socket.bind((self.host, self.port))
         # self.socket.connect((self.host, self.port))
+        self.socket.bind((self.host, self.port))
+
+        # str_to_send = "test".encode("utf-8")
+        # self.socket.sendto(str_to_send, (self.host, self.port))
 
         self.th = Thread(target=self.proc_msg)
         self.th.start()

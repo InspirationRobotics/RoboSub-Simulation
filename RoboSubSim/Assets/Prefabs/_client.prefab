@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  remoteIP: 
   time_check_dropped: 0
   time_check_dropped_freq: 3
 --- !u!114 &6244540749830675702
@@ -76,8 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7456c7ea3bd59164da6cf4243eceeafe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remoteIP: 127.0.0.1
-  ports: 8523000086230000
+  _tcpClient: {fileID: 0}
+  ports: 85230000
 --- !u!114 &-3211168426385654916
 MonoBehaviour:
   m_ObjectHideFlags: 0
