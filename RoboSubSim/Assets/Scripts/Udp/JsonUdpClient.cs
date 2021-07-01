@@ -19,7 +19,6 @@ namespace tk
         IPEndPoint remoteEndPoint;
         UdpClient client = new UdpClient();
 
-
         public void SendMsg(JSONObject msg)
         {
             if (_tcpClient == null) { return; }
@@ -29,13 +28,10 @@ namespace tk
 
             if (ip == null)
                 ip = ((IPEndPoint)(_tcpClient.client._clientSocket.RemoteEndPoint)).Address.ToString();
-                if (ip == null)
-                    return;
 
             foreach (int port in ports)
             {
                 remoteEndPoint = new IPEndPoint(IPAddress.Parse(ip), port);
-                // remoteEndPoint = new IPEndPoint(IPAddress.Loopback, port);
 
                 int numSegments = Mathf.CeilToInt((float)data.Length / (float)maxDgramSize);
                 // if the packet is too large, split it into smaller segments
@@ -44,8 +40,6 @@ namespace tk
                     byte[] sliced_data = (data.Skip(i * maxDgramSize).Take(maxDgramSize)).ToArray();
                     client.Client.SendTo(sliced_data, remoteEndPoint);
                 }
-
-
             }
         }
 
