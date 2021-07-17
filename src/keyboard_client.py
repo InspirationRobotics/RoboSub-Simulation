@@ -77,4 +77,4 @@ class SimpleClient():
 
 if __name__ == "__main__":
 
-    client = SimpleClient("127.0.0.1", 9093, [9094, 9095])  # donkey-sim.roboticist.dev
+    client = SimpleClient("127.0.0.1", 9093, [9094, 9095])
