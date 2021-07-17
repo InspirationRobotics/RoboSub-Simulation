@@ -10,6 +10,7 @@ public class Submarine : MonoBehaviour
     public float waterDrag = 1f;
 
     public float upForce = 0f;
+    public float lateralForce = 0f;
     public float forwardForce = 0f;
     public float rollForce = 0f;
     public float pitchForce = 0f;
@@ -29,8 +30,14 @@ public class Submarine : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (upForce != 0f) { rb.AddRelativeForce(Vector3.up * upForce, ForceMode.Acceleration); }
-        if (forwardForce != 0f) { rb.AddRelativeForce(Vector3.forward * forwardForce, ForceMode.Acceleration); }
+        // TODO simulate random waves/currents etc
+        float rdmUp = (Random.value - 0.5f) * 0.2f;
+        float rdmForward = (Random.value - 0.5f) * 0.2f;
+        float rdmLateral = (Random.value - 0.5f) * 0.2f;
+
+        if (upForce != 0f || rdmUp != 0f) { rb.AddRelativeForce(Vector3.up * (upForce + rdmUp), ForceMode.Acceleration); }
+        if (lateralForce != 0f) { rb.AddRelativeForce(Vector3.right * (lateralForce + rdmLateral), ForceMode.Acceleration); }
+        if (forwardForce != 0f || rdmForward != 0f) { rb.AddRelativeForce(Vector3.forward * (forwardForce + rdmForward), ForceMode.Acceleration); }
         if (rollForce != 0f) { rb.AddRelativeTorque(Vector3.forward * rollForce, ForceMode.Acceleration); }
         if (pitchForce != 0f) { rb.AddRelativeTorque(Vector3.right * pitchForce, ForceMode.Acceleration); }
         if (yawForce != 0f) { rb.AddRelativeTorque(Vector3.up * yawForce, ForceMode.Acceleration); }

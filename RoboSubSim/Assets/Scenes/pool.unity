@@ -1803,7 +1803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5075837372679061185, guid: 0b88fe957d1fc3241be9e25b77d33f34, type: 3}
       propertyPath: doSpawnDemoSub
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5075837372679061185, guid: 0b88fe957d1fc3241be9e25b77d33f34, type: 3}
       propertyPath: doTransmitDemo

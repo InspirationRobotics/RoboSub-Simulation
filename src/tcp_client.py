@@ -186,10 +186,11 @@ class SimpleTcpClient(SDTcpClient):
         if self.verbose:
             print("got:", json_packet)
 
-    def send_controls(self, up_force=0, forward_force=0.1, roll_force=0, pitch_force=0, yaw_force=0):
+    def send_controls(self, up_force=0, lateral_force=0, forward_force=0, roll_force=0, pitch_force=0, yaw_force=0):
         msg = {
             "msg_type": "control",
             "up_force": str(up_force),
+            "lateral_force": str(lateral_force),
             "forward_force": str(forward_force),
             "roll_force": str(roll_force),
             "pitch_force": str(pitch_force),

@@ -95,12 +95,14 @@ namespace tk
             try
             {
                 float upForce = float.Parse(json["up_force"].str, CultureInfo.InvariantCulture.NumberFormat);
+                float lateralForce =float.Parse(json["lateral_force"].str, CultureInfo.InvariantCulture.NumberFormat);
                 float forwardForce = float.Parse(json["forward_force"].str, CultureInfo.InvariantCulture.NumberFormat);
                 float rollForce = float.Parse(json["roll_force"].str, CultureInfo.InvariantCulture.NumberFormat);
                 float pitchForce = float.Parse(json["pitch_force"].str, CultureInfo.InvariantCulture.NumberFormat);
                 float yawForce = float.Parse(json["yaw_force"].str, CultureInfo.InvariantCulture.NumberFormat);
 
                 sub.upForce = upForce;
+                sub.lateralForce = lateralForce;
                 sub.forwardForce = forwardForce;
                 sub.rollForce = rollForce;
                 sub.pitchForce = pitchForce;
