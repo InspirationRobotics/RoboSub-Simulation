@@ -37,15 +37,10 @@ public class AutoSub : MonoBehaviour
         {
             Quaternion rot = sub.rb.rotation;
 
-            if (pitching)
-            {
-                if (Mathf.Abs(rot.z) < 0.01 && IsStable(0.01f, 0.01f)) { pitching = false; rolling = true; sub.ResetForces(); }
-                else { sub.pitchForce = rot.z * 0.1f; }
-            }
-            else if (rolling)
+            if (rolling)
             {
 
-                if (Mathf.Abs(rot.x) < 0.01 && IsStable(0.01f, 0.01f)) { rolling = false; pitching = true; sub.ResetForces(); }
+                if (Mathf.Abs(rot.x) < 0.01 && IsStable(0.01f, 0.01f)) { rolling = false; sub.ResetForces(); }
                 else { sub.rollForce = rot.x * 0.05f; }
 
                 if (IsRotReset())
@@ -72,14 +67,14 @@ public class AutoSub : MonoBehaviour
         else if (forwarding)
         {
             if (Mathf.Abs(relativePos.z) < 0.05 && IsStable()) { forwarding = false; rotating = true; sub.ResetForces(); }
-            else { sub.forwardForce = relativePos.z * 0.1f; }
+            else { sub.forwardForce = relativePosNorm.z * 0.3f; }
 
             if (isNearbyPoint(targetVertex, 1f) && IsStable())
             {
                 sub.ResetForces();
                 forwarding = false;
                 rotReset = true;
-                pitching = true;
+                rolling = true;
             }
         }
 

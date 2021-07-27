@@ -20,22 +20,6 @@ public class SandboxServer : MonoBehaviour
     public bool doSpawnDemoSub = false;
     public bool doTransmitDemo = false;
 
-    public void CheckCommandLineConnectArgs()
-    {
-        string[] args = System.Environment.GetCommandLineArgs();
-
-        for (int i = 0; i < args.Length; i++)
-        {
-            if (args[i] == "--host")
-            {
-                host = args[i + 1];
-            }
-            else if (args[i] == "--port")
-            {
-                port = int.Parse(args[i + 1]);
-            }
-        }
-    }
 
     private void Awake()
     {
@@ -47,8 +31,6 @@ public class SandboxServer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CheckCommandLineConnectArgs();
-
         Debug.Log("SDSandbox Server starting.");
         _server.onClientConntedCB += new tk.TcpServer.OnClientConnected(OnClientConnected);
         _server.onClientDisconntedCB += new tk.TcpServer.OnClientDisconnected(OnClientDisconnected);
