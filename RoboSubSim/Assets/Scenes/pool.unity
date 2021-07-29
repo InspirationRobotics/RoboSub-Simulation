@@ -1850,7 +1850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5075837372679061185, guid: 0b88fe957d1fc3241be9e25b77d33f34, type: 3}
       propertyPath: timeScale
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5075837372679061185, guid: 0b88fe957d1fc3241be9e25b77d33f34, type: 3}
       propertyPath: doSpawnDemoSub
