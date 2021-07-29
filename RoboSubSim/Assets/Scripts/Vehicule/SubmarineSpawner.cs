@@ -5,6 +5,7 @@ using UnityEngine;
 public class SubmarineSpawner : MonoBehaviour
 {
     public GameObject subPrefab;
+    public GameObject demoSubPrefab;
     public GameObject mainCameraGO;
     public Transform spawnPoint;
     public NavPath demoPath;
@@ -29,32 +30,39 @@ public class SubmarineSpawner : MonoBehaviour
             return null;
         }
 
-        GameObject go = GameObject.Instantiate(subPrefab) as GameObject;
+        bool isDemoSub = _TcpClient == null;
+
+        GameObject go;
+        if (isDemoSub)
+            go = GameObject.Instantiate(demoSubPrefab) as GameObject;
+        else
+            go = GameObject.Instantiate(subPrefab) as GameObject;
+
         go.transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
         subs.Add(go);
 
         GameObject TcpUdpClientObj = getChildGameObject(go, "TcpUdpClient");
-        if (TcpUdpClientObj != null)
+        tk.TcpUdpSubHandler subHandler = TcpUdpClientObj.GetComponent<tk.TcpUdpSubHandler>();
+
+        // without this it will not connect.
+        TcpUdpClientObj.SetActive(true);
+
+        // now set the connection settings.
+        subHandler.Init(_TcpClient, _UdpClient);
+
+        if (_TcpClient == null)
         {
-            // without this it will not connect.
-            TcpUdpClientObj.SetActive(true);
-
-            // now set the connection settings.
-            tk.TcpUdpSubHandler subHandler = TcpUdpClientObj.GetComponent<tk.TcpUdpSubHandler>();
-
-            if (subHandler != null)
-                subHandler.Init(_TcpClient, _UdpClient);
-
-            if (subHandler.isDemoSub)
+            AutoSub autoSub = go.GetComponentInChildren<AutoSub>();
+            if (autoSub != null) // an AutoSub class should exist in demoSub
             {
-                AutoSub autoSub = go.GetComponentInChildren<AutoSub>();
                 autoSub.path = demoPath;
-                autoSub.enabled = true;
                 autoSub.Init();
             }
+            else
+                Debug.LogError("Couldn't find AutoSub class in demo sub");
         }
 
-        manageCamera();
+        manageCamera(isDemoSub);
         return go;
     }
 
@@ -85,15 +93,23 @@ public class SubmarineSpawner : MonoBehaviour
         }
     }
 
-    public void manageCamera()
+    public void manageCamera(bool isDemoSub)
     {
         if (subs.Count == 0) { return; }
 
-        GameObject sub = subs[0];
+        GameObject sub = subs[subs.Count - 1];
 
-        CameraFollow cm = mainCameraGO.GetComponent<CameraFollow>();
-        GameObject camTm = getChildGameObject(sub, "CameraTm");
-        cm.target = camTm.transform;
+        if (isDemoSub)
+        {
+            mainCameraGO.SetActive(false);
+        }
+        else
+        {
+            CameraFollow cm = mainCameraGO.GetComponent<CameraFollow>();
+            GameObject camTm = getChildGameObject(sub, "CameraTm");
+            cm.target = camTm.transform;
+        }
+
 
         // DrawSonar ds = mainCameraGO.GetComponent<DrawSonar>();
         // ds.subObj = sub;

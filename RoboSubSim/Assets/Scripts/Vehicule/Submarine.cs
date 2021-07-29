@@ -63,6 +63,7 @@ public class Submarine : MonoBehaviour
     public void ResetForces()
     {
         upForce = 0f;
+        lateralForce = 0f;
         forwardForce = 0f;
         rollForce = 0f;
         pitchForce = 0f;
