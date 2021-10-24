@@ -10,6 +10,7 @@ using System;
 public class SandboxServer : MonoBehaviour
 {
     public int targetFrameRate = 60;
+    public float timeScale = 1f;
 
     public string host;
     public int port;
@@ -26,6 +27,7 @@ public class SandboxServer : MonoBehaviour
         _server = GetComponent<tk.TcpServer>();
 
         Application.targetFrameRate = targetFrameRate;
+        Time.timeScale = timeScale;
     }
 
     // Start is called before the first frame update

@@ -276,6 +276,7 @@ MonoBehaviour:
   waterLevel: 12
   waterDrag: 1
   upForce: 0
+  lateralForce: 0
   forwardForce: 0
   rollForce: 0
   pitchForce: 0
@@ -795,7 +796,6 @@ MonoBehaviour:
   - {fileID: 1276753512156067549}
   - {fileID: 9071414824842756082}
   isDemoSub: 0
-  demoPath: {fileID: 0}
 --- !u!1 &7257204732369072528
 GameObject:
   m_ObjectHideFlags: 0

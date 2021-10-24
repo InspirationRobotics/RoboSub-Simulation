@@ -10,12 +10,12 @@ public class AutoSub : MonoBehaviour
     Vector3[] vertices;
 
 
-    bool rotating = true; // first state
-    bool leveling = false; // second state
-    bool forwarding = false; // third state
-    bool rotReset = false; // last state (before moving to the next point)
-    bool pitching = false;
-    bool rolling = false;
+    public bool rotating = true; // first state
+    public bool leveling = false; // second state
+    public bool forwarding = false; // third state
+    public bool rotReset = false; // last state (before moving to the next point)
+    public bool pitching = false;
+    public bool rolling = false;
 
     public void Init()
     {
@@ -35,29 +35,31 @@ public class AutoSub : MonoBehaviour
 
         if (rotReset) // get the sub in a stable orientation
         {
-            Quaternion rot = sub.rb.rotation;
+            Vector3 rot = sub.rb.rotation.ToEuler();
 
             if (rolling)
             {
 
-                if (Mathf.Abs(rot.x) < 0.01 && IsStable(0.01f, 0.01f)) { rolling = false; sub.ResetForces(); }
-                else { sub.rollForce = rot.x * 0.05f; }
-
-                if (IsRotReset())
+                if (Mathf.Abs(rot.z) < 0.01 && IsStable(0.5f, 0.01f)) //  && IsRotReset()
                 {
+
+                    sub.ResetForces();
                     progressOnPath = (progressOnPath + 1) % vertices.Length;
                     rotReset = false;
                     rolling = false;
                     rotating = true;
                 }
-
+                else
+                {
+                    sub.rollForce = rot.z * -0.05f;
+                }
             }
         }
 
         else if (rotating)
         {
             if (Mathf.Abs(relativePos.x) < 0.05 && IsStable()) { rotating = false; leveling = true; sub.ResetForces(); }
-            else { sub.yawForce = relativePos.x * 0.05f; }
+            else { sub.yawForce = relativePosNorm.x * 0.05f; }
         }
         else if (leveling)
         {
@@ -92,7 +94,7 @@ public class AutoSub : MonoBehaviour
     {
         Quaternion rot = sub.rb.rotation;
 
-        if (rot.x < tolerance && rot.z < tolerance)
+        if (Mathf.Abs(rot.x) < tolerance && Mathf.Abs(rot.z) < tolerance)
             return true;
         else
             return false;
